@@ -32,13 +32,12 @@ void main()
    scanf("%d%d%d",&cd[1]->dateNaiss.jour,&cd[1]->dateNaiss.mois,&cd[1]->dateNaiss.annee);
    printf("\n saisir le numero de telephone ");
    scanf("%d",&cd[1]->numTel);
-   /*do
+   do
    {
      printf("\n saisir l'adresse mail ");
      scanf("%s",&cd[1]->email);
    }
-   while(verif(cd[1]->email));*/
-   c=verif(cd[1]->email);
+   while(verif(cd[1]->email));
    printf("%s",c);
    printf("\n*********************\n");
    printf("\n informations sur le candidat\n");
