@@ -3,5 +3,5 @@
 
 struct Formateur
 {
-
+  int i;
 };
