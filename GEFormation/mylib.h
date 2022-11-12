@@ -10,7 +10,7 @@ typedef struct date DATE;
 struct specialite
 {
     int codeSp;
-    int nomSp;
+    char nomSp[20];
 
 };
 typedef struct specialite SPECIALITE;
@@ -41,3 +41,13 @@ struct formateur
 
 };
 typedef struct formateur FORMATEUR;
+
+struct formation
+{
+    int codeFormation;
+    char titre[20] ;
+    char desc[30] ;
+
+};
+typedef struct formation FORMATION;
+
