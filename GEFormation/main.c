@@ -35,7 +35,7 @@ switch(choix)
 {
     case 1 :
         nbSf=saisieNbSF();
-        allocationSf(nbSf);
+        sf=allocationSf(nbSf);
         saisieSF(sf,nbSf);
         break ;
     case 2 : afficherSF(sf,nbSf);

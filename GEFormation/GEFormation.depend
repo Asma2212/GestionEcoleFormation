@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1668372511 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
+1668373163 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
 	<stdio.h>
 	<stdlib.h>
 	"mylib.h"
@@ -57,12 +57,12 @@
 	<stdlib.h>
 	<stdbool.h>
 
-1668372528 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formation.c
+1668372757 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 
-1668372398 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.c
+1668373171 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
