@@ -71,16 +71,24 @@ void afficherSF(SESSIONFORMATION *sf,int n)
 
    }
 }
-void AjouterCandidatSF(int code,SESSIONFORMATION *sf,int n)
+void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
 {
-  int i=0;
-  bool trouve = false ;
+  int i=0,code;
+  bool trouve = false,max=false ;
+  printf("enter le code de session");
+  scanf("%d",&code);
   do{
         if(code==(sf+i)->codeSF){
             trouve = true ;
+            if((sf+i)->nbCandidat == (sf+i)->nbMaxCandidat){
+                printf("oops! cette session est pleine ")
+            }
         }
     i++;
   }while(!trouve && i<n);
+  if(!trouve){
+    printf("\n!!ce code de session est inexistant \n");
+  }
 
 }
 
