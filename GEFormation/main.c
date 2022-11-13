@@ -4,6 +4,7 @@
 #include "Formateur.c"
 #include "Candidat.c"
 #include "Formation.c"
+#include "SessionFormation.c"
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
@@ -11,28 +12,57 @@
 int main()
 {
 FORMATEUR* f;
-int nbF,nbC,nbFT;
-do{
-printf("entrer le nombre des formateurs ");
-scanf("%d",&nbF);
-}while(nbF<=0);
-
-
-f=(FORMATEUR*) malloc (nbF * sizeof(FORMATEUR));
- if(!f) exit(-1);
-    saisieFormateur(f,nbF);
-    afficherFormateur(f,nbF);
-
+int nbSf,nbC,nbFT,choix,nbF;
+SESSIONFORMATION *sf ;
 CANDIDAT *c;
-nbC=saisieInt1();
-allocationCand(nbC);
-saisiecandidat(c,nbC);
-afficherCandidat(c,nbC);
-
 FORMATION *ft;
-nbFT=saisieInt2();
-allocationFormation(nbFT);
-saisieFormation(ft,nbFT);
-afficherFormation(ft,nbFT);
+// menu : planification des sessions de formations // consulter la liste des formateurs //Ajouter un candidat à une session
+// menu
+do{
+printf("___________________________________\n choisir l'un des traitements Suivants:\n___________________________________\n") ;
+printf("1/ planifier une ou plusieurs session(s) de formations \n") ;
+printf("2/ Consulter les sessions de formations  \n") ;
+printf("3/ Ajouter un ou plusieurs formateur \n") ;
+printf("4/ consulter la liste des formateurs  \n") ;
+printf("5/ Ajouter un ou plusieurs candidat \n") ;
+printf("6/ Consulter la liste des candidats \n") ;
+printf("7/ Ajouter une ou plusieures formation \n") ;
+printf("8/ Consulter la liste des formations \n") ;
+printf("9/ Sortir  \n") ;
+printf("\nTapez votre choix ") ;
+scanf("%d",&choix);
+switch(choix)
+{
+    case 1 :
+        nbSf=saisieNbSF();
+        allocationSf(nbSf);
+        saisieSF(sf,nbSf);
+        break ;
+    case 2 : afficherSF(sf,nbSf);
+
+     break ;
+    case 3 :
+
+     break ;
+    case 4 : afficherFormateur(f,nbF);
+     break ;
+     case 5 :
+         nbC=saisieInt1();
+         allocationCand(nbC);
+         saisiecandidat(c,nbC);
+     break ;
+     case 6 : afficherCandidat(c,nbC);
+     break ;
+     case 7 :
+         nbFT=saisieInt2();
+         allocationFormation(nbFT);
+         saisieFormation(ft,nbFT);
+     break ;
+     case 8 : afficherFormation(ft,nbFT);
+     break ;
+}
+printf("\n ----------------------------- \n") ;
+}while(choix!=9);
+
    return 0 ;
 }

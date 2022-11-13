@@ -51,4 +51,19 @@ struct formation
 };
 typedef struct formation FORMATION;
 
-
+struct sessionformation
+{
+    int codeSF;
+    char titreSF[20] ;
+    DATE dateDebSF;
+    DATE dateFinSF;
+    int nbMaxCandidat;
+    float prix ;
+    int nbCandidat;
+    int nbFormateur;
+    int nbFormation;
+    CANDIDAT * candidats;
+    FORMATEUR * formateurs;
+    FORMATION * formations;
+};
+typedef struct sessionformation SESSIONFORMATION;

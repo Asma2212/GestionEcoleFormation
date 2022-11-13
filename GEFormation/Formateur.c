@@ -32,6 +32,24 @@ bool verifName(char ch[20]){
     return true ;
 }
 
+int saisieNbFormateur()
+{
+    int nbF;
+do{
+printf("entrer le nombre des formateurs ");
+scanf("%d",&nbF);
+}while(nbF<=0);
+    return nbF;
+
+}
+FORMATEUR* allocationForm(int n)
+{
+    FORMATEUR* f;
+    f=(FORMATEUR*) malloc (n * sizeof(FORMATEUR));
+    if(!f) exit(-1);
+    return f;
+}
+
 void saisieSpecialite(int n,SPECIALITE* spF){
 for(int i=0;i<n;i++){
    printf("\n saisir le code Specialite");
