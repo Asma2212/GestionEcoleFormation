@@ -40,9 +40,9 @@ void afficherFormation(FORMATION *ft,int n)
     for(i=0;i<n;i++)
     {
         printf("\n*********************\n");
-        printf("les informations sur la Formation %d",i+1);
-        printf("code : %d",ft->codeFormation);
-        printf("titre : %s",ft->titre);
-        printf("description : %s",ft->desc);
+        printf("\n les informations sur la Formation %d\n",i+1);
+        printf("\n code : %d \n",ft->codeFormation);
+        printf("\n titre : %s\n",ft->titre);
+        printf("\n description : %s",ft->desc);
     }
 }
