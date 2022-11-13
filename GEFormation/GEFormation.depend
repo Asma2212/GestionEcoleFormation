@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1668343451 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Formateur.c"
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+
+1668290150 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\mylib.h
+
+1668343429 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formateur.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"mylib.h"
+
