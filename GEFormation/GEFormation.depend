@@ -15,3 +15,37 @@
 	<stdbool.h>
 	"mylib.h"
 
+1668353681 source:c:\users\abirb\documents\github\geformation\geformation\main.c
+	<stdio.h>
+	<stdlib.h>
+	"mylib.h"
+	"Formateur.c"
+	"Candidat.c"
+	"Formation.c"
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+
+1668352917 c:\users\abirb\documents\github\geformation\geformation\mylib.h
+
+1668344422 c:\users\abirb\documents\github\geformation\geformation\formateur.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1668198320 source:c:\users\abirb\documents\github\geformation\geformation\candidat.c
+
+1668329831 source:c:\users\abirb\documents\github\geformation\geformation\formation.c
+
+1668180019 source:c:\users\abirb\documents\github\geformation\geformation\sessionformation.c
+
+1668353814 c:\users\abirb\documents\github\geformation\geformation\candidat.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1668351160 c:\users\abirb\documents\github\geformation\geformation\formation.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
