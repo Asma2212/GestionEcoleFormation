@@ -53,6 +53,7 @@ void saisieSF(SESSIONFORMATION *sf,int n)
     scanf("%d",&(sf+i)->nbFormateur);
     (sf+i)->formateurs = allocationForm((sf+i)->nbFormateur);
     saisieFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
+     (sf+i)->nbCandidat = 0;
    }
 }
 
@@ -66,14 +67,21 @@ void afficherSF(SESSIONFORMATION *sf,int n)
      printf("\n titre : %s",(sf+i)->titreSF);
      printf("\n date debut : %d/%d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
      printf("\n date fin : %d/%d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
+     printf("--------- LES FORMATEUR(S) : -------- \n ");
      afficherFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
+    printf("--------- LES FORMATION(S) : -------- \n ");
      afficherFormation((sf+i)->formations,(sf+i)->nbFormation);
+    printf("--------- LES CANDIDATS(S) : -------- \n ");
+    afficherCandidat((sf+i)->candidats,(sf+i)->nbCandidat);
+
+
 
    }
 }
 void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
 {
-  int i=0,code;
+  int i=0,code,nbC;
+  CANDIDAT *c;
   bool trouve = false,max=false ;
   printf("enter le code de session");
   scanf("%d",&code);
@@ -81,7 +89,30 @@ void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
         if(code==(sf+i)->codeSF){
             trouve = true ;
             if((sf+i)->nbCandidat == (sf+i)->nbMaxCandidat){
-                printf("oops! cette session est pleine ")
+                printf("oops! cette session est pleine ");
+            }
+            else{
+                printf("entrer le nombre de candidat à ajouter");
+                scanf("%d",&nbC);
+                    if(nbC > (sf+i)->nbMaxCandidat - (sf+i)->nbCandidat)
+                        printf("nombre est limitée il vous reste seulement %d libre(s)",(sf+i)->nbMaxCandidat - (sf+i)->nbCandidat);
+                    else{
+                        if((sf+i)->nbCandidat == 0){
+                         (sf+i)->candidats = allocationCand(nbC);
+                          saisiecandidat((sf+i)->candidats,nbC);
+                          (sf+i)->nbCandidat +=nbC ;
+                        }
+                        else{
+                          (sf+i)->nbCandidat +=nbC ;
+                          c = allocationCand((sf+i)->nbCandidat);
+                          saisiecandidat(c,nbC);
+                          for(int j=nbC,k=0;j<(sf+i)->nbCandidat,k<(sf+i)->nbCandidat-nbC;j++,k++)
+                          *(c+j)=*((sf+i)->candidats+k);
+                        }
+
+                    }
+
+
             }
         }
     i++;

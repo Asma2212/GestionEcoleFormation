@@ -28,7 +28,8 @@ printf("5/ Ajouter un ou plusieurs candidat \n") ;
 printf("6/ Consulter la liste des candidats \n") ;
 printf("7/ Ajouter une ou plusieures formation \n") ;
 printf("8/ Consulter la liste des formations \n") ;
-printf("9/ Sortir  \n") ;
+printf("9/ ajouter candidat à une session \n") ;
+printf("10/ Sortir  \n") ;
 printf("\nTapez votre choix ") ;
 scanf("%d",&choix);
 switch(choix)
@@ -62,9 +63,11 @@ switch(choix)
      break ;
      case 8 : afficherFormation(ft,nbFT);
      break ;
+    case 9 : AjouterCandidatSF(sf,nbSf);
+     break ;
 }
 printf("\n ----------------------------- \n") ;
-}while(choix!=9);
+}while(choix!=10);
 
    return 0 ;
 }
