@@ -14,7 +14,7 @@ bool verifDate(int nj,int nm,int na)
     }
     else if (nj==30)
     {
-        if(nm==4 && nm==6 && nm==9 && nm==11) return true;
+        if(nm>=1 && nm<=12 && nm!=2) return true;
         else printf("le jour n'est pas compatible avec le mois");
     }
     else if (nj==31)
