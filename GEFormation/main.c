@@ -64,9 +64,17 @@ void main()
 int main()
 {
 FORMATEUR* f ;
-f=(FORMATEUR*) malloc (sizeof(FORMATEUR));
-    saisieFormateur(f);
-    afficherFormateur(f);
+int nbF;
+do{
+printf("entrer le nombre des formateurs ");
+scanf("%d",&nbF);
+}while(nbF<=0);
+
+
+f=(FORMATEUR*) malloc (nbF * sizeof(FORMATEUR));
+ if(!f) exit(-1);
+    saisieFormateur(f,nbF);
+    afficherFormateur(f,nbF);
 
 
    return 0 ;

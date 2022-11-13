@@ -41,53 +41,56 @@ for(int i=0;i<n;i++){
 }
 
 }
-void saisieFormateur(FORMATEUR* f){
+void saisieFormateur(FORMATEUR* f,int n){
 
-   if(!f) exit(-1);
-   printf("\n saisir les informations du formateur \n");
+  for(int i=0;i<n;i++){
+   printf("\n saisir les informations du formateur ** %d ** \n",i+1);
    printf("\n saisir le code ");
-   scanf("%d",&f->ceF);
+   scanf("%d",&(f+i)->ceF);
    do{
    printf("\n saisir le nom");
-   scanf("%s",&f->nomF);
+   scanf("%s",&(f+i)->nomF);
    }while(!verifName(f->nomF));
    do{
    printf("\n saisir le prenom ");
-   scanf("%s",&f->prenomF);
-   }while(!verifName(f->nomF));
+   scanf("%s",&(f+i)->prenomF);
+   }while(!verifName((f+i)->nomF));
     printf("entrer le jour de naissance");
-        scanf("%d",&f->dateNaissF.jour);
+        scanf("%d",&(f+i)->dateNaissF.jour);
     printf("entrer le mois de naissance");
-        scanf("%d",&f->dateNaissF.mois);
+        scanf("%d",&(f+i)->dateNaissF.mois);
     printf("entrer l'annee de naissance");
-        scanf("%d",&f->dateNaissF.annee);
+        scanf("%d",&(f+i)->dateNaissF.annee);
    printf("\n saisir le numero de telephone ");
-   scanf("%d",&f->numTel);
+   scanf("%d",&(f+i)->numTel);
 
 do{
    printf("\n saisir l' email ");
-   scanf("%s",&f->emailF);
-}while(!verifEmail(f->emailF));
+   scanf("%s",&(f+i)->emailF);
+}while(!verifEmail((f+i)->emailF));
 
     printf("entrer le nombre des specialité qu'il possede");
-        scanf("%d",&f->nbSpecialite);
-f->spF=(SPECIALITE*) malloc ( f->nbSpecialite * sizeof(SPECIALITE));
-saisieSpecialite(f->nbSpecialite,f->spF);
+        scanf("%d",&(f+i)->nbSpecialite);
+(f+i)->spF=(SPECIALITE*) malloc ( (f+i)->nbSpecialite * sizeof(SPECIALITE));
+saisieSpecialite((f+i)->nbSpecialite,(f+i)->spF);
+  }
+
 }
 
-void afficherFormateur(FORMATEUR* f){
-
+void afficherFormateur(FORMATEUR* f,int n){
+for(int i=0;i<n;i++){
    printf("\n*********************\n");
-   printf("\n informations sur le formateur\n");
-   printf("\n code : %d ",f->ceF) ;
-   printf("\n nom: %s ",f->nomF);
-   printf("\n prenom : %s ",f->prenomF);
-   printf("\n date de naissance : %d/%d/%d",f->dateNaissF.jour,f->dateNaissF.mois,f->dateNaissF.annee);
-   printf("\n numero de telephone : %d",f->numTel);
-   printf("\n numero de nbSpecialités : %d",f->nbSpecialite);
-   for(int i=0;i<f->nbSpecialite;i++){
-   printf("\n code Specialite : %d ",(f->spF+i)->codeSp);
-   printf("\n le nom %s",&(f->spF+i)->nomSp);
-}
+   printf("\n informations sur le formateur ** %d ** \n",i+1);
+   printf("\n code : %d ",(f+i)->ceF) ;
+   printf("\n nom: %s ",(f+i)->nomF);
+   printf("\n prenom : %s ",(f+i)->prenomF);
+   printf("\n date de naissance : %d/%d/%d",(f+i)->dateNaissF.jour,(f+i)->dateNaissF.mois,(f+i)->dateNaissF.annee);
+   printf("\n numero de telephone : %d",(f+i)->numTel);
+   printf("\n numero de nbSpecialités : %d",(f+i)->nbSpecialite);
+   for(int i=0;i<(f+i)->nbSpecialite;i++){
+   printf("\n code Specialite : %d ",((f+i)->spF+i)->codeSp);
+   printf("\n nom Specialite %s",&((f+i)->spF+i)->nomSp);
 
+}
+}
 }
