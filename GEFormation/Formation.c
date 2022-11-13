@@ -24,7 +24,7 @@ void saisieFormation(FORMATION*ft,int n)
     int i;
     for(i=0;i<n;i++)
     {
-        printf("saisir les informations sur la formation %d",i+1);
+        printf("\nsaisir les informations sur la formation %d \n",i+1);
         printf("saisir le code");
         scanf("%d",&ft->codeFormation);
         printf("saisir le titre ");
@@ -40,7 +40,7 @@ void afficherFormation(FORMATION *ft,int n)
     for(i=0;i<n;i++)
     {
         printf("\n*********************\n");
-        printf("\n les informations sur la Formation %d\n",i+1);
+        printf("\n les informations sur la Formation %d \n",i+1);
         printf("\n code : %d \n",ft->codeFormation);
         printf("\n titre : %s\n",ft->titre);
         printf("\n description : %s",ft->desc);
