@@ -66,11 +66,8 @@ void afficherSF(SESSIONFORMATION *sf,int n)
      printf("\n date debut : %d/%d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
      printf("\n date fin : %d/%d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
      afficherFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
-    /* printf("\n nom: %s",c->nom);
-     printf("\n prenom : %s",c->prenom);
-     printf("\n date de naissance : %d/%d/%d",c->dateNaiss.jour,c->dateNaiss.mois,c->dateNaiss.annee);
-     printf("\n numero de telephone : %d",c->numTel);
-     printf("\n adresse mail : %s",c->email);*/
+     afficherFormation((sf+i)->formations,(sf+i)->nbFormation);
+
    }
 }
 
