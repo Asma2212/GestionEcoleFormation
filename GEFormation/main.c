@@ -12,7 +12,7 @@
 int main()
 {
 FORMATEUR* f;
-int nbSf,nbC,nbFT,choix,nbF;
+int nbSf,nbC,nbFT,choix,nbf;
 SESSIONFORMATION *sf ;
 CANDIDAT *c;
 FORMATION *ft;
@@ -42,9 +42,11 @@ switch(choix)
 
      break ;
     case 3 :
-
+        nbf=saisieNbFormateur();
+        allocationForm(nbf);
+        saisieFormateur(f,nbf);
      break ;
-    case 4 : afficherFormateur(f,nbF);
+    case 4 : afficherFormateur(f,nbf);
      break ;
      case 5 :
          nbC=saisieInt1();
