@@ -55,6 +55,7 @@ void saisieSF(SESSIONFORMATION *sf,int n)
     saisieFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
    }
 }
+
 void afficherSF(SESSIONFORMATION *sf,int n)
 {   int i;
     for(i=0;i<n;i++)

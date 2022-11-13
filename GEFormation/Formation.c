@@ -12,7 +12,7 @@ int saisieInt2()
     while(x<=0);
     return x;
 }
-void allocationFormation(int n)
+FORMATION * allocationFormation(int n)
 {
     FORMATION *ft;
     ft=(FORMATION*) malloc (n*sizeof(FORMATION));

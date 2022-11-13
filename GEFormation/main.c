@@ -11,11 +11,11 @@
 
 int main()
 {
-FORMATEUR* f;
+FORMATEUR* ft;
 int nbSf,nbC,nbFT,choix,nbf;
 SESSIONFORMATION *sf ;
 CANDIDAT *c;
-FORMATION *ft;
+FORMATION *f;
 // menu : planification des sessions de formations // consulter la liste des formateurs //Ajouter un candidat à une session
 // menu
 do{
@@ -43,22 +43,22 @@ switch(choix)
      break ;
     case 3 :
         nbf=saisieNbFormateur();
-        allocationForm(nbf);
-        saisieFormateur(f,nbf);
+        ft=allocationForm(nbf);
+        saisieFormateur(ft,nbf);
      break ;
     case 4 : afficherFormateur(f,nbf);
      break ;
      case 5 :
          nbC=saisieInt1();
-         allocationCand(nbC);
+         c=allocationCand(nbC);
          saisiecandidat(c,nbC);
      break ;
      case 6 : afficherCandidat(c,nbC);
      break ;
      case 7 :
          nbFT=saisieInt2();
-         allocationFormation(nbFT);
-         saisieFormation(ft,nbFT);
+         f=allocationFormation(nbFT);
+         saisieFormation(f,nbFT);
      break ;
      case 8 : afficherFormation(ft,nbFT);
      break ;
