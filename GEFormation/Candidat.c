@@ -7,7 +7,7 @@ bool verifDate(int nj,int nm,int na)
     if((nj>=1) && (nj<=29))
     {if((nm>=1) && (nm<=12))
       {
-          if((na>1900) && (na<=2020)) return true;
+          if((na>1900) && (na<=2022)) return true;
           else printf("l'annee n'existe pas ");
       }
      else printf("le mois n'existe pas");
