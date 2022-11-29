@@ -3,6 +3,12 @@
 #include <stdbool.h>
 //#include "mylib.h"
 
+void AjouterCandidatSF(SESSIONFORMATION *,int);
+void afficherSF(SESSIONFORMATION *,int);
+SESSIONFORMATION* allocationSf(int);
+int saisieNbSF();
+void saisieSF(SESSIONFORMATION *sf,int n);
+
 int saisieNbSF()
 {
     int x;

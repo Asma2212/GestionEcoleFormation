@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+//#include "mylib.h"
+
+int saisieInt2();
+void afficherFormation(FORMATION *,int);
+void saisieFormation(FORMATION*,int);
+FORMATION * allocationFormation(int);
+
 int saisieInt2()
 {
     int x;

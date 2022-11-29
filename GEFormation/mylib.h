@@ -67,3 +67,12 @@ struct sessionformation
     FORMATION * formations;
 };
 typedef struct sessionformation SESSIONFORMATION;
+
+
+
+
+
+
+
+
+

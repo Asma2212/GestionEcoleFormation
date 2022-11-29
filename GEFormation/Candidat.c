@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <stdbool.h>
 //#include "mylib.h"
+
+bool verifDate(int,int,int);
+void saisiecandidat(CANDIDAT *,int);
+void afficherCandidat(CANDIDAT *,int);
+CANDIDAT* allocationCand(int);
+int saisieInt1();
+
 bool verifDate(int nj,int nm,int na)
 {
     if((nj>=1) && (nj<=29))
