@@ -1,15 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+
 //#include "mylib.h"
 
-bool verifEmail(char[]);
-bool verifName(char[]);
-int saisieNbFormateur();
-void afficherFormateur(FORMATEUR* ,int );
-void saisieFormateur(FORMATEUR*,int );
-void saisieSpecialite(int ,SPECIALITE*);
-FORMATEUR* allocationForm(int);
+
 
 bool verifEmail(char ch[20])
 {

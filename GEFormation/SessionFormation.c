@@ -3,11 +3,7 @@
 #include <stdbool.h>
 //#include "mylib.h"
 
-void AjouterCandidatSF(SESSIONFORMATION *,int);
-void afficherSF(SESSIONFORMATION *,int);
-SESSIONFORMATION* allocationSf(int);
-int saisieNbSF();
-void saisieSF(SESSIONFORMATION *sf,int n);
+
 
 int saisieNbSF()
 {
@@ -21,18 +17,23 @@ int saisieNbSF()
     return x;
 
 }
-SESSIONFORMATION* allocationSf(int n)
+SESSIONFORMATION* allocationSf(SESSIONFORMATION *sf,int n)
 {
     SESSIONFORMATION *c;
-    c=(SESSIONFORMATION*) malloc (n*sizeof(SESSIONFORMATION));
-    if(!c) exit(-1);
-    return c;
+  if((sf+1)->codeSF == 0){
+              printf("***%d",(sf+1)->codeSF);
+    sf = (SESSIONFORMATION*) realloc(sf,n * sizeof(SESSIONFORMATION));
+  }else{
+  sf=(SESSIONFORMATION*) malloc (n*sizeof(SESSIONFORMATION));
+  }
+    if(!sf) exit(-1);
+    return sf;
 }
 
-void saisieSF(SESSIONFORMATION *sf,int n)
+void saisieSF(SESSIONFORMATION *sf,int n,int deb)
 {
-  int i;
-  for(i=0;i<n;i++)
+    int i ;
+  for(i=deb;i<n;i++)
    {
     printf("\n saisir les informations de la session de formation %d\n",i+1);
     printf("\n saisir le code ");

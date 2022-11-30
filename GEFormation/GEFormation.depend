@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1669740264 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
+1669815615 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
 	<stdio.h>
+	<conio.h>
 	<stdlib.h>
 	"mylib.h"
 	"Formateur.c"
@@ -11,9 +12,9 @@
 	<stdbool.h>
 	<ctype.h>
 
-1669740319 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\mylib.h
+1669813110 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\mylib.h
 
-1669740435 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formateur.c
+1669813082 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formateur.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -53,17 +54,17 @@
 	<stdlib.h>
 	<stdbool.h>
 
-1669740294 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\candidat.c
+1669811678 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\candidat.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 
-1669740294 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formation.c
+1669812707 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 
-1669740292 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.c
+1669816061 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -72,4 +73,14 @@
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
+
+1669805255 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formateur.h
+	<stdbool.h>
+
+1669805905 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\candidat.h
+	<stdbool.h>
+
+1669805270 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formation.h
+
+1669812975 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.h
 

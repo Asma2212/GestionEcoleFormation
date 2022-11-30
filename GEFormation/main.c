@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <conio.h>
 #include <stdlib.h>
 #include "mylib.h"
 #include "Formateur.c"
@@ -12,12 +13,13 @@
 int main()
 {
 FORMATEUR* f;
-int nbSf,nbC,nbFT,choix,nbf;
+int nbSf,nbC,nbFT,choix,nbf,d,tot=0;
 SESSIONFORMATION *sf ;
 CANDIDAT *c;
 FORMATION *ft;
 // menu : planification des sessions de formations // consulter la liste des formateurs //Ajouter un candidat à une session
 // menu
+
 do{
 printf("___________________________________\n choisir l'un des traitements Suivants:\n___________________________________\n") ;
 printf("1/ planifier une ou plusieurs session(s) de formations \n") ;
@@ -32,14 +34,20 @@ printf("9/ ajouter candidat à une session \n") ;
 printf("10/ Sortir  \n") ;
 printf("\nTapez votre choix ") ;
 scanf("%d",&choix);
+
+
 switch(choix)
 {
     case 1 :
+
         nbSf=saisieNbSF();
-        sf=allocationSf(nbSf);
-        saisieSF(sf,nbSf);
+        tot = tot + nbSf ;
+        sf=allocationSf(sf,tot);
+
+        saisieSF(sf,tot,tot-nbSf);
+
         break ;
-    case 2 : afficherSF(sf,nbSf);
+    case 2 : afficherSF(sf,tot);
 
      break ;
     case 3 :
