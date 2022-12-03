@@ -48,3 +48,7 @@ void afficherFormation(FORMATION *ft,int n)
         printf("\n description : %s",ft->desc);
     }
 }
+void modifierFormation(FORMATION *ft,int nbFT){
+}
+void supprimerFormation(FORMATION *ft,int *nbFT){
+}
