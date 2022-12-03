@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-//#include "mylib.h"
+#include "SessionFormation.h"
 
 
 
@@ -17,9 +17,10 @@ int saisieNbSF()
     return x;
 
 }
-SESSIONFORMATION* allocationSf(SESSIONFORMATION *sf,int n)
+SESSIONFORMATION* allocationSf(int n)
 {
-    SESSIONFORMATION *c;
+    SESSIONFORMATION *sf;
+
   if((sf+1)->codeSF == 0){
               printf("***%d",(sf+1)->codeSF);
     sf = (SESSIONFORMATION*) realloc(sf,n * sizeof(SESSIONFORMATION));

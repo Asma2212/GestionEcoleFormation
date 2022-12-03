@@ -1,3 +1,5 @@
+#ifndef MYLIB_H_INCLUDED
+#define MYLIB_H_INCLUDED
 struct date
 {
     int jour;
@@ -69,7 +71,7 @@ struct sessionformation
 typedef struct sessionformation SESSIONFORMATION;
 
 
-
+#endif // MYLIB_H_INCLUDED
 
 
 

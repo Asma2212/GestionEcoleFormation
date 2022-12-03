@@ -2,10 +2,14 @@
 #include <conio.h>
 #include <stdlib.h>
 #include "mylib.h"
-#include "Formateur.c"
+/*#include "Formateur.c"
 #include "Candidat.c"
 #include "Formation.c"
-#include "SessionFormation.c"
+#include "SessionFormation.c"*/
+#include "Formateur.h"
+#include "Candidat.h"
+#include "Formation.h"
+#include "SessionFormation.h"
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
@@ -42,7 +46,7 @@ switch(choix)
 
         nbSf=saisieNbSF();
         tot = tot + nbSf ;
-        sf=allocationSf(sf,tot);
+        sf=allocationSf(tot);
 
         saisieSF(sf,tot,tot-nbSf);
 

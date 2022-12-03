@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-//#include "mylib.h"
+#include "Formation.h"
 
 int saisieInt2()
 {

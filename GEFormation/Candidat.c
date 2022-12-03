@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-//#include "mylib.h"
+#include "Candidat.h"
 
 
 bool verifDate(int nj,int nm,int na)

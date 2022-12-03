@@ -1,3 +1,5 @@
+#ifndef FORMATEUR_H_INCLUDED
+#define FORMATEUR_H_INCLUDED
 #include <stdbool.h>
 
 bool verifEmail(char[]);
@@ -7,3 +9,6 @@ void afficherFormateur(FORMATEUR* ,int );
 void saisieFormateur(FORMATEUR*,int );
 void saisieSpecialite(int ,SPECIALITE*);
 FORMATEUR* allocationForm(int);
+
+
+#endif
