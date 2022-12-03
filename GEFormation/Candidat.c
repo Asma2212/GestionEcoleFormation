@@ -65,7 +65,7 @@ void saisiecandidat(CANDIDAT *c,int n)
     while(!verifName((c+i)->prenom));
     do
      {printf("\n saisir la date de naissance (JJ MM AAAA)");
-      scanf("%d %d %d",&(c+i)->dateNaiss.jour,&(c+i)->dateNaiss.mois,&(c+i)->dateNaiss.annee);}
+      scanf("%d/%d/%d",&(c+i)->dateNaiss.jour,&(c+i)->dateNaiss.mois,&(c+i)->dateNaiss.annee);}
      while(!verifDate((c+i)->dateNaiss.jour,(c+i)->dateNaiss.mois,(c+i)->dateNaiss.annee));
    do{
     printf("\n saisir le numero de telephone ");
@@ -134,7 +134,7 @@ void modifierCandidat(CANDIDAT *c,int n)
     while(!verifName((c+i)->prenom));
     do
      {printf("\n saisir la date de naissance (JJ MM AAAA) \n");
-      scanf("%d %d %d",&(c+i)->dateNaiss.jour,&(c+i)->dateNaiss.mois,&(c+i)->dateNaiss.annee);}
+      scanf("%d/%d/%d",&(c+i)->dateNaiss.jour,&(c+i)->dateNaiss.mois,&(c+i)->dateNaiss.annee);}
      while(!verifDate((c+i)->dateNaiss.jour,(c+i)->dateNaiss.mois,(c+i)->dateNaiss.annee));
    do{
     printf("\n saisir le numero de telephone ");
@@ -181,10 +181,10 @@ void supprimerCandidat(CANDIDAT *c,int* n){
     do{
     printf("\n Voulez-vous supprimer definitivement ce candidat ? (tapez O ou N)");
     scanf("%s",&choix);
-    if( (strcmp(choix,"O") == 0 ) && (strcmp(choix,"N") == 0) ){
-        printf("\n !!! Priére de taper O pour Confirmer ou N pour annuler la suppression");
+    if( (strcmp(choix,"O") ) && (strcmp(choix,"N")) ){
+        printf("\n !!! Priere de taper O pour Confirmer ou N pour annuler la suppression");
     }
-    }while((strcmp(choix,"O") == 0 ) && ( strcmp(choix,"N") == 0));
+    }while((strcmp(choix,"O") ) && ( strcmp(choix,"N") ));
     if(strcmp(choix,"O") == 0){
     for(int j=i;j<*n-1;j++){
         (c+j)->ce = (c+j+1)->ce ;
