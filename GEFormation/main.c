@@ -46,7 +46,7 @@ switch(choix)
 
         nbSf=saisieNbSF();
         tot = tot + nbSf ;
-        sf=allocationSf(tot);
+        sf=allocationSf(sf,tot);
 
         saisieSF(sf,tot,tot-nbSf);
 

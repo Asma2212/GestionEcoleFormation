@@ -17,9 +17,8 @@ int saisieNbSF()
     return x;
 
 }
-SESSIONFORMATION* allocationSf(int n)
+SESSIONFORMATION* allocationSf(SESSIONFORMATION *sf,int n)
 {
-    SESSIONFORMATION *sf;
 
   if((sf+1)->codeSF == 0){
               printf("***%d",(sf+1)->codeSF);
