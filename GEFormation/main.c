@@ -2,14 +2,17 @@
 #include <conio.h>
 #include <stdlib.h>
 #include "mylib.h"
-/*#include "Formateur.c"
-#include "Candidat.c"
-#include "Formation.c"
-#include "SessionFormation.c"*/
+/*
 #include "Formateur.h"
 #include "Candidat.h"
 #include "Formation.h"
 #include "SessionFormation.h"
+*/
+#include "Formateur.c"
+#include "Candidat.c"
+#include "Formation.c"
+#include "SessionFormation.c"
+
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>

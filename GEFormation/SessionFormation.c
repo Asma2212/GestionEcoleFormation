@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "SessionFormation.h"
-
+//#include "SessionFormation.h"
 
 
 int saisieNbSF()

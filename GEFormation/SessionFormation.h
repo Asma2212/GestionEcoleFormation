@@ -1,7 +1,6 @@
 #ifndef SESSIONFORMATION_H_INCLUDED
 #define SESSIONFORMATION_H_INCLUDED
-#include <stdbool.h>
-
+#include <stddef.h>
 int saisieNbSF();
 void AjouterCandidatSF(SESSIONFORMATION *,int);
 void afficherSF(SESSIONFORMATION *,int);
