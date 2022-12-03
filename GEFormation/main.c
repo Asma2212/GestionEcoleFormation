@@ -69,7 +69,7 @@ switch(choix)
      break ;
       case 3 : ;
      break ;
-     case 4 : ;
+     case 4 :supprimerFormateur(f,&nbf) ;
      break ;
 
      case 5 :
