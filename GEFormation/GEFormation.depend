@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670076339 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
+1670099618 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -58,7 +58,7 @@
 	<stdlib.h>
 	<stdbool.h>
 
-1670076359 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\candidat.c
+1670100265 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\candidat.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>

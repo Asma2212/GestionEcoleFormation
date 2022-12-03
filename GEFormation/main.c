@@ -30,15 +30,21 @@ FORMATION *ft;
 do{
 printf("___________________________________\n choisir l'un des traitements Suivants:\n___________________________________\n") ;
 printf("1/ planifier une ou plusieurs session(s) de formations \n") ;
-printf("2/ Consulter les sessions de formations  \n") ;
+printf("2/ Consulter les sessions de formations  \n")
+;
 printf("3/ Ajouter un ou plusieurs formateur \n") ;
 printf("4/ consulter la liste des formateurs  \n") ;
+
 printf("5/ Ajouter un ou plusieurs candidat \n") ;
 printf("6/ Consulter la liste des candidats \n") ;
-printf("7/ Ajouter une ou plusieures formation \n") ;
-printf("8/ Consulter la liste des formations \n") ;
-printf("9/ ajouter candidat à une session \n") ;
-printf("10/ Sortir  \n") ;
+printf("7/ Modifier un candidat \n") ;
+printf("8/ Supprimer un candidat \n") ;
+
+printf("9/ Ajouter une ou plusieures formation \n") ;
+printf("10/ Consulter la liste des formations \n") ;
+
+printf("11/ ajouter candidat à une session \n") ;
+printf("12/ Sortir  \n") ;
 printf("\nTapez votre choix ") ;
 scanf("%d",&choix);
 
@@ -71,18 +77,25 @@ switch(choix)
      break ;
      case 6 : afficherCandidat(c,nbC);
      break ;
-     case 7 :
+
+     case 7 : modifierCandidat(c,nbC);
+     break ;
+     case 8 : supprimerCandidat(c,&nbC);
+     break ;
+
+
+     case 9 :
          nbFT=saisieInt2();
          ft=allocationFormation(nbFT);
          saisieFormation(ft,nbFT);
      break ;
-     case 8 : afficherFormation(ft,nbFT);
+     case 10 : afficherFormation(ft,nbFT);
      break ;
-    case 9 : AjouterCandidatSF(sf,nbSf);
+    case 11 : AjouterCandidatSF(sf,nbSf);
      break ;
 }
 printf("\n ----------------------------- \n") ;
-}while(choix!=10);
+}while(choix!=12);
 
    return 0 ;
 }
