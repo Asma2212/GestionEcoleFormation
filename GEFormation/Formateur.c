@@ -140,7 +140,7 @@ void modifierFormateur(FORMATEUR *f,int* n){
       printf("\n !!!! Ce code n'existe pas !!!!");
   }
     else{
-
+    printf("hello");
     printf(" *** Les informations du formateur à supprimer : \n");
      printf("\n nom: %s",(f+i)->nomF);
      printf("\n prenom : %s",(f+i)->prenomF);

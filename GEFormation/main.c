@@ -67,7 +67,7 @@ switch(choix)
 
     case 2 : afficherFormateur(f,nbf);
      break ;
-      case 3 : ;
+      case 3 :modifierFormateur(f,nbf) ;
      break ;
      case 4 :supprimerFormateur(f,&nbf) ;
      break ;
