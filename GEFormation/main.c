@@ -26,7 +26,6 @@ CANDIDAT *c;
 FORMATION *ft;
 // menu : planification des sessions de formations // consulter la liste des formateurs //Ajouter un candidat à une session
 // menu
-
 do{
 printf("___________________________________\n choisir l'un des traitements Suivants:\n___________________________________\n") ;
 printf("\n---- FORMATEUR ----\n") ;
@@ -100,9 +99,10 @@ switch(choix)
          case 13 :
 
         nbSf=saisieNbSF();
+
         tot = tot + nbSf ;
         sf=allocationSf(sf,tot);
-
+printf("%d",nbSf);
         saisieSF(sf,tot,tot-nbSf);
 
         break ;
