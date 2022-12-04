@@ -94,7 +94,7 @@
 1670070603 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.h
 	<stddef.h>
 
-1670107149 source:c:\users\abirb\documents\github\geformation\main.c
+1670148132 source:c:\users\abirb\documents\github\geformation\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -103,6 +103,7 @@
 	"Candidat.h"
 	"Formation.h"
 	"SessionFormation.h"
+	"Verifications.c"
 	"Formateur.c"
 	"Candidat.c"
 	"Formation.c"
@@ -113,27 +114,28 @@
 
 1670053451 c:\users\abirb\documents\github\geformation\mylib.h
 
-1670110918 c:\users\abirb\documents\github\geformation\formateur.c
+1670148423 c:\users\abirb\documents\github\geformation\formateur.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 
-1670110699 c:\users\abirb\documents\github\geformation\candidat.c
+1670148132 c:\users\abirb\documents\github\geformation\candidat.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<stdbool.h>
 	<ctype.h>
 
-1670101541 c:\users\abirb\documents\github\geformation\formation.c
+1670148132 c:\users\abirb\documents\github\geformation\formation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 
-1670080335 c:\users\abirb\documents\github\geformation\sessionformation.c
+1670148995 c:\users\abirb\documents\github\geformation\sessionformation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
+	<time.h>
 
 1670053451 c:\users\abirb\documents\github\geformation\candidat.h
 	<stdbool.h>
@@ -148,6 +150,20 @@
 	<stdbool.h>
 
 1670112014 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\verifications.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+
+1670148690 c:\users\abirb\documents\github\geformation\verifications.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+
+1670148690 source:c:\users\abirb\documents\github\geformation\verifications.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

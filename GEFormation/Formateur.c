@@ -85,7 +85,7 @@ for(int i=0;i<n;i++){
    printf("\n numero de telephone : %d",(f+i)->numTel);
    printf("\n adresse mail : %s",(f+i)->emailF);
    printf("\n numero de nbSpecialités : %d",(f+i)->nbSpecialite);
-   for(int j=0;i<(f+i)->nbSpecialite;j++){
+   for(int j=0;j<(f+i)->nbSpecialite;j++){
    printf("\n code Specialite : %d ",((f+i)->spF+j)->codeSp);
    printf("\n nom Specialite %s",((f+i)->spF+j)->nomSp);
 
