@@ -8,8 +8,10 @@
 #include "Formation.h"
 #include "SessionFormation.h"
 */
-#include "Formateur.c"
+
+#include "Verifications.c"
 #include "Candidat.c"
+#include "Formateur.c"
 #include "Formation.c"
 #include "SessionFormation.c"
 

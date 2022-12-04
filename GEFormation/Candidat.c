@@ -7,28 +7,7 @@
 //#include "Candidat.h"
 
 
-bool verifDate(int nj,int nm,int na)
-{
-    if((nj>=1) && (nj<=29))
-    {if((nm>=1) && (nm<=12))
-      {
-          if((na>1900) && (na<=2022)) return true;
-          else printf("l'annee n'existe pas ");
-      }
-     else printf("le mois n'existe pas");
-    }
-    else if (nj==30)
-    {
-        if(nm>=1 && nm<=12 && nm!=2) return true;
-        else printf("le jour n'est pas compatible avec le mois");
-    }
-    else if (nj==31)
-    {
-        if(nm==1 && nm==3 && nm==5 && nm==7 && nm==8 && nm==10 && nm==12) return true;
-        else printf("le jour n'est pas compatible avec le mois");
-    }
-    else printf("le jour n'existe pas");
-}
+
 int saisieInt1()
 {
     int x;

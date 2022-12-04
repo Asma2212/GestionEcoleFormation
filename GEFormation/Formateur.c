@@ -6,35 +6,6 @@
 
 
 
-bool verifEmail(char ch[20])
-{
-bool test1=false;
-int i=0,n=0,p=0 ;
-do{
-    if(ch[i]=='@'){
-        n++;
-        test1 = true ;
-
-    }
-    if(test1 && ch[i]=='.'){
-        p++;
-    }
-    i++;
-}while(i<strlen(ch));
-if(p!=1 || n!=1 )
-printf("l email doit etre de la forme xxxx@yyyy.www");
-else
-return true ;
-
-}
-bool verifName(char ch[20]){
-    for(int i=0;i<strlen(ch);i++)
-        if(isdigit(ch[i])){
-            printf("!cette chaine ne doit pas contenir des chiffres");
-            return false ;
-        }
-    return true ;
-}
 
 int saisieNbFormateur()
 {
