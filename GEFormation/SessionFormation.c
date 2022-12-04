@@ -125,7 +125,7 @@ void afficherSF(SESSIONFORMATION *sf,int n)
 }
 void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
 {
-  int i=0,code,nbC;
+/*A  int i=0,code,nbC;
   CANDIDAT *c;
   bool trouve = false,max=false ;
   printf("enter le code de session");
@@ -143,7 +143,7 @@ void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
                         printf("nombre est limitée il vous reste seulement %d libre(s)",(sf+i)->nbMaxCandidat - (sf+i)->nbCandidat);
                     else{
                         if((sf+i)->nbCandidat == 0){
-                         (sf+i)->candidats = allocationCand(nbC);
+                         allocationCand((sf+i)->candidats , nbC);
                           saisiecandidat((sf+i)->candidats,nbC);
                           (sf+i)->nbCandidat +=nbC ;
                         }
@@ -165,7 +165,7 @@ void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
   if(!trouve){
     printf("\n!!ce code de session est inexistant \n");
   }
-
+*/
 }
 
 

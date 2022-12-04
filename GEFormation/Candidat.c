@@ -20,18 +20,21 @@ int saisieInt1()
     return x;
 
 }
-CANDIDAT* allocationCand(int n)
+CANDIDAT* allocationCand( CANDIDAT *c,int n)
 {
-    CANDIDAT *c;
-    c=(CANDIDAT*) malloc (n*sizeof(CANDIDAT));
+    if(c != NULL){
+            printf("***%d",(c+1)->ce);
+    c = (CANDIDAT*) realloc(c,n * sizeof(CANDIDAT));
+  }else{
+    c=(CANDIDAT*) malloc (n*sizeof(CANDIDAT));}
     if(!c) exit(-1);
     return c;
 }
 
-void saisiecandidat(CANDIDAT *c,int n)
+void saisiecandidat(CANDIDAT *c,int n,int deb)
 {
   int i;
-  for(i=0;i<n;i++)
+  for(i=deb;i<n;i++)
    {
     printf("\n saisir les informations du candidat %d\n",i+1);
     printf("\n saisir le code ");
@@ -73,7 +76,7 @@ void afficherCandidat(CANDIDAT *c,int n)
      printf("\n code : %d ",(c+i)->ce) ;
      printf("\n nom: %s",(c+i)->nom);
      printf("\n prenom : %s",(c+i)->prenom);
-     printf("\n date de naissance : %d/%d/%d \n",(c+i)->dateNaiss.jour,(c+i)->dateNaiss.mois,(c+i)->dateNaiss.annee);
+     printf("\n date de naissance : %02d/%02d/%02d \n",(c+i)->dateNaiss.jour,(c+i)->dateNaiss.mois,(c+i)->dateNaiss.annee);
      printf("\n numero de telephone : %d",(c+i)->numTel);
      printf("\n adresse mail : %s",(c+i)->email);
    }
@@ -134,6 +137,7 @@ void modifierCandidat(CANDIDAT *c,int n)
 void supprimerCandidat(CANDIDAT *c,int* n){
 
       int i=0,cd;
+      CANDIDAT * cs;
 
       char choix[3] ;
   if(c == NULL){
@@ -167,20 +171,29 @@ void supprimerCandidat(CANDIDAT *c,int* n){
     }
     }while((strcmp(choix,"O") ) && ( strcmp(choix,"N") ));
     if(strcmp(choix,"O") == 0){
-    for(int j=i;j<*n-1;j++){
-        (c+j)->ce = (c+j+1)->ce ;
-        strcpy((c+j)->nom , (c+j+1)->nom);
-        strcpy((c+j)->prenom , (c+j+1)->prenom );
-        (c+j)->dateNaiss = (c+j+1)->dateNaiss ;
-        strcpy((c+j)->email , (c+j+1)->email );
-        strcpy((c+j)->numTel , (c+j+1)->numTel ) ;
+                *n = *n - 1 ;
+
+printf("position = %d",i);
+    for(int j=i;j<(*n);j++){
+printf("parcours = %d total %d",j,*n);
+        (c+j)->ce = (c+(j+1))->ce ;
+        strcpy((c+j)->nom , (c+(j+1))->nom);
+        strcpy((c+j)->prenom , (c+(j+1))->prenom );
+        (c+j)->dateNaiss = (c+(j+1))->dateNaiss ;
+        strcpy((c+j)->email , (c+(j+1))->email );
+        (c+j)->numTel = (c+(j+1))->numTel ;
+printf("FIN parcours = %d total %d",j,*n);
     }
-    *n = *n - 1 ;
-    if((*n) == 0)
+
+    if((*n) == 0){
         free(c);
-    else
+        c = NULL ;
+     printf("tableau videeeee ");
+    }
+    else{
+
     c = (CANDIDAT*) realloc(c,(*n) * sizeof(CANDIDAT));
-    c= NULL ;
+    }
     printf("suppression effectuer avec succees ");
 
   }else

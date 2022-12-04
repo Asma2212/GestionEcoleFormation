@@ -23,7 +23,7 @@
 int main()
 {
 FORMATEUR* f =NULL;
-int nbSf,nbC,nbFT,choix,nbf,d,tot=0;
+int nbSf,nbC,nbFT,choix,nbf,d,tot=0,totCand=0;
 SESSIONFORMATION *sf=NULL ;
 CANDIDAT *c=NULL;
 FORMATION *ft = NULL;
@@ -76,10 +76,11 @@ switch(choix)
 
      case 5 :
          nbC=saisieInt1();
-         c=allocationCand(nbC);
-         saisiecandidat(c,nbC);
+         totCand = totCand + nbC ;
+        c= allocationCand(c,totCand);
+         saisiecandidat(c,totCand,totCand-nbC);
      break ;
-     case 6 : afficherCandidat(c,nbC);
+     case 6 : afficherCandidat(c,totCand);
      break ;
 
      case 7 : modifierCandidat(c,nbC);
