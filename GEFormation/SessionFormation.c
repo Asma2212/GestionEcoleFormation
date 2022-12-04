@@ -51,6 +51,7 @@ SESSIONFORMATION* allocationSf(SESSIONFORMATION *sf,int n)
   }else{
   sf=(SESSIONFORMATION*) malloc (n*sizeof(SESSIONFORMATION));
   }
+
     if(!sf) exit(-1);
     return sf;
 }
