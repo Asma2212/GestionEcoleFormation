@@ -10,21 +10,26 @@ bool verifDate(int nj,int nm,int na)
     {if((nm>=1) && (nm<=12))
       {
           if((na>1900) && (na<=2022)) return true;
-          else printf("l'annee n'existe pas ");
+          else {printf("l'annee n'existe pas ");
+          return false;}
       }
-     else printf("le mois n'existe pas");
+     else {printf("le mois n'existe pas");
+          return false;}
     }
     else if (nj==30)
     {
         if(nm>=1 && nm<=12 && nm!=2) return true;
-        else printf("le jour n'est pas compatible avec le mois");
+         else{ printf("le jour n'est pas compatible avec le mois");
+         return false;}
     }
     else if (nj==31)
     {
         if(nm==1 && nm==3 && nm==5 && nm==7 && nm==8 && nm==10 && nm==12) return true;
-        else printf("le jour n'est pas compatible avec le mois");
+        else {printf("le jour n'est pas compatible avec le mois");
+              return false;}
     }
-    else printf("le jour n'existe pas");
+    else{ printf("le jour n'existe pas");
+          return false;}
 }
 
 bool verifEmail(char ch[20])

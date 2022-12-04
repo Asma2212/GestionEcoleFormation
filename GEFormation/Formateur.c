@@ -162,26 +162,26 @@ void modifierFormateur(FORMATEUR *f,int* n){
 
 void supprimerFormateur(FORMATEUR *f,int* n){
 
-      int i=0,ceF1;
-
-      char choix[3] ;
+  int i=0,ceF1;
+  char choix[3] ;
   if(f==NULL){
     printf("tableau VIDE");
-  }else{
-  printf("entrer le code du formateur à supprimer ");
-  scanf("%d",&ceF1);
+    }
+  else{
+    printf("entrer le code du formateur à supprimer ");
+    scanf("%d",&ceF1);
 
-  while((i<*n) && ( (f+i)->ceF != ceF1 )){
-        i++;
-  }
+    while((i<*n) && ( (f+i)->ceF != ceF1 )){
+         i++;
+         }
 
-  }
+    }
   if(i==*n){
       printf("\n !!!! Ce code n'existe pas !!!!");
   }
-    else{
+   else{
 
-    printf(" *** Les informations du formateur à supprimer : \n");
+     printf(" *** Les informations du formateur à supprimer : \n");
      printf("\n nom: %s",(f+i)->nomF);
      printf("\n prenom : %s",(f+i)->prenomF);
      printf("\n date de naissance : %d/%d/%d",(f+i)->dateNaissF.jour,(f+i)->dateNaissF.mois,(f+i)->dateNaissF.annee);
@@ -191,43 +191,43 @@ void supprimerFormateur(FORMATEUR *f,int* n){
      for(int u=0;u<(f+i)->nbSpecialite;u++){
         printf("\n code Specialite : %d ",((f+i)->spF+u)->codeSp);
         printf("\n nom Specialite %s",((f+i)->spF+u)->nomSp);
-     }
-
-    printf(" \n---- Confirmation -------- : \n");
-    do{
-    printf("\n Voulez-vous supprimer definitivement ce formateur ? (tapez O ou N)");
-    scanf("%s",&choix);
-    if( (strcmp(choix,"O")) && (strcmp(choix,"N")) ){
-        printf("\n !!! Priére de taper O pour Confirmer ou N pour annuler la suppression");
-    }
-    }while((strcmp(choix,"O")) && ( strcmp(choix,"N")));
-    if(strcmp(choix,"O") == 0){
-    *n = *n - 1 ;
-    for(int j=i;j<(*n);j++){
-        (f+j)->ceF = (f+j+1)->ceF ;
-        strcpy((f+j)->nomF , (f+j+1)->nomF);
-        strcpy((f+j)->prenomF , (f+j+1)->prenomF);
-        (f+j)->dateNaissF = (f+j+1)->dateNaissF ;
-        strcpy((f+j)->emailF , (f+j+1)->emailF );
-        strcpy((f+j)->numTel , (f+j+1)->numTel ) ;
-        (f+j)->nbSpecialite = (f+j+1)->nbSpecialite ;
-        for(int u=0;u<(f+j)->nbSpecialite;u++){
-           ((f+j)->spF+u)->codeSp = ((f+j+1)->spF+u)->codeSp ;
-            strcpy(((f+j)->spF+u)->nomSp , ((f+j+1)->spF+u)->nomSp);
         }
-    }
 
-    if((*n) == 0){
-        free(f);
-        f=NULL;
-        printf("tableau videeee");
-    }
-    else
-    f = (FORMATEUR*) realloc(f,(*n) * sizeof(FORMATEUR));
-    printf("suppression effectuer avec succees ");
-
-  }else
-  printf("suppression annuler ");
+     printf(" \n---- Confirmation -------- : \n");
+     do{
+       printf("\n Voulez-vous supprimer definitivement ce formateur ? (tapez O ou N)");
+       scanf("%s",&choix);
+       if( (strcmp(choix,"O")) && (strcmp(choix,"N")) ){
+         printf("\n !!! Priére de taper O pour Confirmer ou N pour annuler la suppression");
+         }
+       }while((strcmp(choix,"O")) && ( strcmp(choix,"N")));
+     if(strcmp(choix,"O") == 0){
+       *n = *n - 1 ;
+       printf("helllllooooooo");
+       for(int j=i;j<(*n);j++){
+          (f+j)->ceF = (f+(j+1))->ceF ;
+          strcpy((f+j)->nomF , (f+(j+1))->nomF);
+          strcpy((f+j)->prenomF , (f+(j+1))->prenomF);
+          (f+j)->dateNaissF = (f+(j+1))->dateNaissF ;
+          strcpy((f+j)->emailF , (f+(j+1))->emailF );
+          strcpy((f+j)->numTel , (f+(j+1))->numTel ) ;
+          (f+j)->nbSpecialite = (f+(j+1))->nbSpecialite ;
+          for(int u=0;u<(f+j)->nbSpecialite;u++){
+             ((f+j)->spF+u)->codeSp = ((f+(j+1))->spF+u)->codeSp ;
+              strcpy(((f+j)->spF+u)->nomSp , ((f+(j+1))->spF+u)->nomSp);
+              }
+        }
+       if((*n) == 0){
+         free(f);
+         f=NULL;
+         printf("tableau videeee");
+         }
+       else
+         f = (FORMATEUR*) realloc(f,(*n) * sizeof(FORMATEUR));
+       printf("suppression effectuer avec succees ");
+       }
+     else
+       printf("suppression annuler ");
   }
 
 }
