@@ -70,7 +70,7 @@ void saisieSF(SESSIONFORMATION *sf,int n,int deb)
 
     do{
     d = dateCourante();
-    printf("\n saisir la date de debut ");
+    printf("\n saisir la date de debut (JJ/MM/AAAA)");
     scanf("%d/%d/%d",&(sf+i)->dateDebSF.jour,&(sf+i)->dateDebSF.mois,&(sf+i)->dateDebSF.annee);
     if(!verifDateSf(d,(sf+i)->dateDebSF)){
        printf("la date entree doit etre superieure a la date courante %02d/%02d/%d\n", d.jour, d.mois, d.annee);
@@ -79,15 +79,13 @@ void saisieSF(SESSIONFORMATION *sf,int n,int deb)
      while(!verifDateSf(d,(sf+i)->dateDebSF));
 
     do{
-    printf("\n saisir la date de fin ");
+    printf("\n saisir la date de fin (JJ/MM/AAAA)");
     scanf("%d/%d/%d",&(sf+i)->dateFinSF.jour,&(sf+i)->dateFinSF.mois,&(sf+i)->dateFinSF.annee);
     if(!verifDateSf((sf+i)->dateDebSF,(sf+i)->dateFinSF)){
        printf("la date entree doit etre superieure a la date debut %02d/%02d/%d\n", (sf+i)->dateFinSF.jour, (sf+i)->dateFinSF.mois, (sf+i)->dateFinSF.annee);
         }
     }
      while(!verifDateSf((sf+i)->dateDebSF,(sf+i)->dateFinSF));
-    printf("\n saisir le nombre maximale des candidats ");
-    scanf("%d",&(sf+i)->nbMaxCandidat);
     //********** formation *************
     printf("\n saisir le nombre des formations ");
     scanf("%d",&(sf+i)->nbFormation);
@@ -98,7 +96,12 @@ void saisieSF(SESSIONFORMATION *sf,int n,int deb)
     scanf("%d",&(sf+i)->nbFormateur);
     (sf+i)->formateurs = allocationForm((sf+i)->nbFormateur);
     saisieFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
+    (sf+i)->candidats = NULL;
+        printf("\n saisir le nombre maximale des candidats ");
+    scanf("%d",&(sf+i)->nbMaxCandidat);
      (sf+i)->nbCandidat = 0;
+     (sf+i)->nbFormateur = 0;
+     (sf+i)->nbFormation = 0;
    }
 }
 
@@ -110,8 +113,8 @@ void afficherSF(SESSIONFORMATION *sf,int n)
      printf("\n informations sur la session de formation %d\n",i+1);
      printf("\n code : %d ",(sf+i)->codeSF) ;
      printf("\n titre : %s",(sf+i)->titreSF);
-     printf("\n date debut : %d/%d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
-     printf("\n date fin : %d/%d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
+     printf("\n date debut : %02d/%02d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
+     printf("\n date fin : %02d/%02d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
      printf("--------- LES FORMATEUR(S) : -------- \n ");
      afficherFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
     printf("--------- LES FORMATION(S) : -------- \n ");
@@ -125,7 +128,7 @@ void afficherSF(SESSIONFORMATION *sf,int n)
 }
 void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
 {
-/*A  int i=0,code,nbC;
+ int i=0,code,nbC;
   CANDIDAT *c;
   bool trouve = false,max=false ;
   printf("enter le code de session");
@@ -137,23 +140,16 @@ void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
                 printf("oops! cette session est pleine ");
             }
             else{
-                printf("entrer le nombre de candidat à ajouter");
+                printf("entrer le nombre de candidat à ajouter ");
                 scanf("%d",&nbC);
                     if(nbC > (sf+i)->nbMaxCandidat - (sf+i)->nbCandidat)
                         printf("nombre est limitée il vous reste seulement %d libre(s)",(sf+i)->nbMaxCandidat - (sf+i)->nbCandidat);
                     else{
-                        if((sf+i)->nbCandidat == 0){
-                         allocationCand((sf+i)->candidats , nbC);
-                          saisiecandidat((sf+i)->candidats,nbC);
-                          (sf+i)->nbCandidat +=nbC ;
-                        }
-                        else{
-                          (sf+i)->nbCandidat +=nbC ;
-                          c = allocationCand((sf+i)->nbCandidat);
-                          saisiecandidat(c,nbC);
-                          for(int j=nbC,k=0;j<(sf+i)->nbCandidat,k<(sf+i)->nbCandidat-nbC;j++,k++)
-                          *(c+j)=*((sf+i)->candidats+k);
-                        }
+                            printf("***");
+                            (sf+i)->nbCandidat += nbC ;
+                            printf("111***  %d",(sf+i)->nbCandidat);
+                            (sf+i)->candidats = allocationCand((sf+i)->candidats,(sf+i)->nbCandidat);
+                            saisiecandidat((sf+i)->candidats,(sf+i)->nbCandidat,(sf+i)->nbCandidat-nbC);
 
                     }
 
@@ -165,7 +161,7 @@ void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
   if(!trouve){
     printf("\n!!ce code de session est inexistant \n");
   }
-*/
+
 }
 
 

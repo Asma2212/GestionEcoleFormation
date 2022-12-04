@@ -43,12 +43,12 @@ void saisiecandidat(CANDIDAT *c,int n,int deb)
      {printf("\n saisir le nom ");
       scanf("%s",&(c+i)->nom);}
     while(!verifName((c+i)->nom));
-    do
+   do
      {printf("\n saisir le prenom ");
       scanf("%s",&(c+i)->prenom);}
     while(!verifName((c+i)->prenom));
     do
-     {printf("\n saisir la date de naissance (JJ MM AAAA)");
+     {printf("\n saisir la date de naissance (JJ/MM/AAAA)");
       scanf("%d/%d/%d",&(c+i)->dateNaiss.jour,&(c+i)->dateNaiss.mois,&(c+i)->dateNaiss.annee);}
      while(!verifDate((c+i)->dateNaiss.jour,(c+i)->dateNaiss.mois,(c+i)->dateNaiss.annee));
    do{
@@ -66,7 +66,7 @@ void saisiecandidat(CANDIDAT *c,int n,int deb)
 
 void afficherCandidat(CANDIDAT *c,int n)
 {   int i;
-  if((c+1)->ce == 0){
+  if(c==NULL){
     printf("tableau VIDE");
   }else{
     for(i=0;i<n;i++)
@@ -102,7 +102,7 @@ void modifierCandidat(CANDIDAT *c,int n)
     printf(" *** Les anciens informations de ce candidat : \n");
      printf("\n nom: %s",(c+i)->nom);
      printf("\n prenom : %s",(c+i)->prenom);
-     printf("\n date de naissance : %d/%d/%d",(c+i)->dateNaiss.jour,(c+i)->dateNaiss.mois,(c+i)->dateNaiss.annee);
+     printf("\n date de naissance : %02d/%02d/%02d",(c+i)->dateNaiss.jour,(c+i)->dateNaiss.mois,(c+i)->dateNaiss.annee);
      printf("\n numero de telephone : %d",(c+i)->numTel);
      printf("\n adresse mail : %s",(c+i)->email);
 
@@ -117,7 +117,7 @@ void modifierCandidat(CANDIDAT *c,int n)
       scanf("%s",&(c+i)->prenom);}
     while(!verifName((c+i)->prenom));
     do
-     {printf("\n saisir la date de naissance (JJ MM AAAA) \n");
+     {printf("\n saisir la date de naissance (JJ/MM/AAAA) \n");
       scanf("%d/%d/%d",&(c+i)->dateNaiss.jour,&(c+i)->dateNaiss.mois,&(c+i)->dateNaiss.annee);}
      while(!verifDate((c+i)->dateNaiss.jour,(c+i)->dateNaiss.mois,(c+i)->dateNaiss.annee));
    do{
