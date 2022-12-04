@@ -188,7 +188,7 @@ void supprimerFormateur(FORMATEUR *f,int* n){
      printf("\n numero de telephone : %d",(f+i)->numTel);
      printf("\n adresse mail : %s",(f+i)->emailF);
      printf("\n numero de nbSpecialités : %d",(f+i)->nbSpecialite);
-     for(int u=0;u<(f+u)->nbSpecialite;u++){
+     for(int u=0;u<(f+i)->nbSpecialite;u++){
         printf("\n code Specialite : %d ",((f+i)->spF+u)->codeSp);
         printf("\n nom Specialite %s",((f+i)->spF+u)->nomSp);
      }
