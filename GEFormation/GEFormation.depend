@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670105064 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
+1670113859 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -8,6 +8,7 @@
 	"Candidat.h"
 	"Formation.h"
 	"SessionFormation.h"
+	"Verifications.c"
 	"Formateur.c"
 	"Candidat.c"
 	"Formation.c"
@@ -18,7 +19,7 @@
 
 1670070474 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\mylib.h
 
-1670076362 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formateur.c
+1670113918 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formateur.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -58,17 +59,19 @@
 	<stdlib.h>
 	<stdbool.h>
 
-1670103062 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\candidat.c
+1670113841 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\candidat.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+
+1670113971 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 
-1670101150 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formation.c
-	<stdio.h>
-	<stdlib.h>
-	<stdbool.h>
-
-1670111329 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.c
+1670113806 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -143,4 +146,11 @@
 
 1670057419 c:\users\abirb\documents\github\geformation\formateur.h
 	<stdbool.h>
+
+1670112014 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\verifications.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
 

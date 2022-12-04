@@ -10,8 +10,9 @@
 */
 
 #include "Verifications.c"
-#include "Candidat.c"
+
 #include "Formateur.c"
+#include "Candidat.c"
 #include "Formation.c"
 #include "SessionFormation.c"
 
@@ -21,11 +22,11 @@
 
 int main()
 {
-FORMATEUR* f;
+FORMATEUR* f =NULL;
 int nbSf,nbC,nbFT,choix,nbf,d,tot=0;
-SESSIONFORMATION *sf ;
-CANDIDAT *c;
-FORMATION *ft;
+SESSIONFORMATION *sf=NULL ;
+CANDIDAT *c=NULL;
+FORMATION *ft = NULL;
 // menu : planification des sessions de formations // consulter la liste des formateurs //Ajouter un candidat à une session
 // menu
 do{

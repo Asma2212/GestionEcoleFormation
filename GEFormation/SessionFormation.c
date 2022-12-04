@@ -44,14 +44,13 @@ int saisieNbSF()
 }
 SESSIONFORMATION* allocationSf(SESSIONFORMATION *sf,int n)
 {
-     sf=(SESSIONFORMATION*) malloc (n*sizeof(SESSIONFORMATION));
-/*
-  if((sf+1)->codeSF == 0){
+
+  if(sf == NULL){
               printf("***%d",(sf+1)->codeSF);
     sf = (SESSIONFORMATION*) realloc(sf,n * sizeof(SESSIONFORMATION));
   }else{
   sf=(SESSIONFORMATION*) malloc (n*sizeof(SESSIONFORMATION));
-  }*/
+  }
     if(!sf) exit(-1);
     return sf;
 }

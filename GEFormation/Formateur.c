@@ -97,7 +97,7 @@ void modifierFormateur(FORMATEUR *f,int* n){
       int i=0,ceF1;
 
       char choix[3] ;
-  if((f+1)->ceF == 0){
+  if(f==NULL){
     printf("tableau VIDE");
   }else{
   printf("entrer le code du formateur à modifier ");
@@ -165,7 +165,7 @@ void supprimerFormateur(FORMATEUR *f,int* n){
       int i=0,ceF1;
 
       char choix[3] ;
-  if((f+1)->ceF == 0){
+  if(f==NULL){
     printf("tableau VIDE");
   }else{
   printf("entrer le code du formateur à supprimer ");
@@ -220,6 +220,7 @@ void supprimerFormateur(FORMATEUR *f,int* n){
         free(f);
     else
     f = (FORMATEUR*) realloc(f,(*n) * sizeof(FORMATEUR));
+    f=NULL;
     printf("suppression effectuer avec succees ");
 
   }else

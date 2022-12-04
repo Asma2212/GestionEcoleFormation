@@ -82,10 +82,10 @@ void afficherCandidat(CANDIDAT *c,int n)
 void modifierCandidat(CANDIDAT *c,int n)
 {
   int i=0,cd;
-  if((c+1)->ce == 0){
+  if(c == NULL){
     printf("tableau VIDE");
   }else{
-  printf("entrer le code du Candidat à supprimer");
+  printf("entrer le code du Candidat à modifier");
   scanf("%d",&cd);
 
   while((i<n) && ( (c+i)->ce != cd )){
@@ -136,7 +136,7 @@ void supprimerCandidat(CANDIDAT *c,int* n){
       int i=0,cd;
 
       char choix[3] ;
-  if((c+1)->ce == 0){
+  if(c == NULL){
     printf("tableau VIDE");
   }else{
   printf("entrer le code du Candidat à supprimer ");
@@ -180,6 +180,7 @@ void supprimerCandidat(CANDIDAT *c,int* n){
         free(c);
     else
     c = (CANDIDAT*) realloc(c,(*n) * sizeof(CANDIDAT));
+    c= NULL ;
     printf("suppression effectuer avec succees ");
 
   }else
