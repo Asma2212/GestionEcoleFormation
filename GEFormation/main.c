@@ -53,8 +53,8 @@ printf("\n---- SESSION DE FORMAION ----\n") ;
 printf("13/ planifier une ou plusieurs session(s) de formations \n") ;
 printf("14/ Consulter les sessions de formations  \n");
 printf("15/ ajouter candidat à une session \n") ;
-
-printf("16/ Sortir  \n") ;
+printf("16/ ajouter une session de formation \n") ;
+printf("17/ Sortir  \n") ;
 printf("\nTapez votre choix ") ;
 scanf("%d",&choix);
 
@@ -116,10 +116,11 @@ printf("%d",nbSf);
      break ;
          case 15 : AjouterCandidatSF(sf,nbSf);
      break ;
-
+     case 16 : modifierSF(sf,nbSf);
+     break;
 }
 printf("\n ----------------------------- \n") ;
-}while(choix!=16);
+}while(choix!=17);
 
    return 0 ;
 }

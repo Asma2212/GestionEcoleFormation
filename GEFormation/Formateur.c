@@ -111,9 +111,8 @@ void modifierFormateur(FORMATEUR *f,int* n){
       printf("\n !!!! Ce code n'existe pas !!!!");
   }
     else{
-    printf("hello");
-    printf(" *** Les informations du formateur à supprimer : \n");
-     printf("\n nom: %s",(f+i)->nomF);
+     printf(" *** Les informations du formateur à supprimer : \n");
+     printf("\n nom : %s",(f+i)->nomF);
      printf("\n prenom : %s",(f+i)->prenomF);
      printf("\n date de naissance : %d/%d/%d",(f+i)->dateNaissF.jour,(f+i)->dateNaissF.mois,(f+i)->dateNaissF.annee);
      printf("\n numero de telephone : %d",(f+i)->numTel);

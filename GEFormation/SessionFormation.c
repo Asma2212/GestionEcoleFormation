@@ -164,4 +164,76 @@ void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
 
 }
 
+void modifierSF(SESSIONFORMATION *sf,int n){
+
+      int i=0,codeSF1;
+      DATE d;
+      char choix[3] ;
+  if(sf==NULL){
+    printf("tableau VIDE");
+  }else{
+  printf("entrer le code du formateur à modifier ");
+  scanf("%d",&codeSF1);
+
+  while((i<n) && ( (sf+i)->codeSF != codeSF1 )){
+        i++;
+  }
+
+  if(i==n){
+      printf("\n !!!! Ce code n'existe pas !!!!");
+  }
+    else{
+     printf(" *** Les informations du formateur à supprimer : \n");
+     printf("\n titre : %s",(sf+i)->titreSF);
+     printf("\n date debut : %02d/%02d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
+     printf("\n date fin :  %02d/%02d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
+     printf("--------- LES FORMATEUR(S) : -------- \n ");
+      afficherFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
+     printf("--------- LES FORMATION(S) : -------- \n ");
+      afficherFormation((sf+i)->formations,(sf+i)->nbFormation);
+     printf("--------- LES CANDIDATS(S) : -------- \n ");
+      afficherCandidat((sf+i)->candidats,(sf+i)->nbCandidat);
+
+     }
+      printf("\n saisir les nouvelles données du candidat %d\n",i+1);
+
+    printf("\n saisir le titre ");
+    scanf("%s",&(sf+i)->titreSF);
+    do{
+    d = dateCourante();
+    printf("\n saisir la date de debut (JJ/MM/AAAA)");
+    scanf("%d/%d/%d",&(sf+i)->dateDebSF.jour,&(sf+i)->dateDebSF.mois,&(sf+i)->dateDebSF.annee);
+    if(!verifDateSf(d,(sf+i)->dateDebSF)){
+       printf("la date entree doit etre superieure a la date courante %02d/%02d/%d\n", d.jour, d.mois, d.annee);
+        }
+    }
+     while(!verifDateSf(d,(sf+i)->dateDebSF));
+
+    do{
+    printf("\n saisir la date de fin (JJ/MM/AAAA)");
+    scanf("%d/%d/%d",&(sf+i)->dateFinSF.jour,&(sf+i)->dateFinSF.mois,&(sf+i)->dateFinSF.annee);
+    if(!verifDateSf((sf+i)->dateDebSF,(sf+i)->dateFinSF)){
+       printf("la date entree doit etre superieure a la date debut %02d/%02d/%d\n", (sf+i)->dateFinSF.jour, (sf+i)->dateFinSF.mois, (sf+i)->dateFinSF.annee);
+        }
+    }
+     while(!verifDateSf((sf+i)->dateDebSF,(sf+i)->dateFinSF));
+    //********** formation *************
+    printf("\n saisir le nombre des formations ");
+    scanf("%d",&(sf+i)->nbFormation);
+    (sf+i)->formations = allocationForm((sf+i)->nbFormation);
+    saisieFormation((sf+i)->formations,(sf+i)->nbFormation,0);
+    //*********** formateur *********
+    printf("\n saisir le nombre des formateurs ");
+    scanf("%d",&(sf+i)->nbFormateur);
+    (sf+i)->formateurs = allocationForm((sf+i)->nbFormateur);
+    saisieFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
+    (sf+i)->candidats = NULL;
+        printf("\n saisir le nombre maximale des candidats ");
+    scanf("%d",&(sf+i)->nbMaxCandidat);
+     (sf+i)->nbCandidat = 0;
+     (sf+i)->nbFormateur = 0;
+     (sf+i)->nbFormation = 0;
+  }
+
+}
 
