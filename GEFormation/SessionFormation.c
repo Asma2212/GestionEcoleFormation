@@ -45,7 +45,7 @@ int saisieNbSF()
 SESSIONFORMATION* allocationSf(SESSIONFORMATION *sf,int n)
 {
 
-  if(sf == NULL){
+  if(sf != NULL){
               printf("***%d",(sf+1)->codeSF);
     sf = (SESSIONFORMATION*) realloc(sf,n * sizeof(SESSIONFORMATION));
   }else{
