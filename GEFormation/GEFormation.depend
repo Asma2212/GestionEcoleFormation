@@ -19,7 +19,7 @@
 
 1670070474 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\mylib.h
 
-1670114012 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formateur.c
+1670149264 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formateur.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -71,7 +71,7 @@
 	<stdlib.h>
 	<stdbool.h>
 
-1670114489 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.c
+1670148935 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -149,7 +149,7 @@
 1670057419 c:\users\abirb\documents\github\geformation\formateur.h
 	<stdbool.h>
 
-1670112014 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\verifications.c
+1670149632 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\verifications.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -164,6 +164,13 @@
 	<ctype.h>
 
 1670148690 source:c:\users\abirb\documents\github\geformation\verifications.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<ctype.h>
+
+1670149264 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\verifications.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

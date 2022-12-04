@@ -26,6 +26,7 @@ bool verifDate(int nj,int nm,int na)
     }
     else printf("le jour n'existe pas");
 }
+
 bool verifEmail(char ch[20])
 {
 bool test1=false;
