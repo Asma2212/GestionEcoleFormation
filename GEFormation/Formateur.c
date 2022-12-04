@@ -27,10 +27,10 @@ FORMATEUR* allocationForm(int n)
 
 void saisieSpecialite(int n,SPECIALITE* spF){
 for(int i=0;i<n;i++){
-   printf("\n saisir le code Specialite");
+   printf("\n saisir le code Specialite ");
    scanf("%d",&(spF+i)->codeSp);
    do{
-   printf("\n saisir le nom");
+   printf("\n saisir le nom ");
    scanf("%s",&(spF+i)->nomSp);}
    while(!verifName((spF+i)->nomSp));
 }
@@ -43,7 +43,7 @@ void saisieFormateur(FORMATEUR* f,int n){
    printf("\n saisir le code ");
    scanf("%d",&(f+i)->ceF);
    do{
-   printf("\n saisir le nom");
+   printf("\n saisir le nom ");
    scanf("%s",&(f+i)->nomF);
    }while(!verifName(f->nomF));
    do{
@@ -202,7 +202,8 @@ void supprimerFormateur(FORMATEUR *f,int* n){
     }
     }while((strcmp(choix,"O")) && ( strcmp(choix,"N")));
     if(strcmp(choix,"O") == 0){
-    for(int j=i;j<*n-1;j++){
+    *n = *n - 1 ;
+    for(int j=i;j<(*n);j++){
         (f+j)->ceF = (f+j+1)->ceF ;
         strcpy((f+j)->nomF , (f+j+1)->nomF);
         strcpy((f+j)->prenomF , (f+j+1)->prenomF);
@@ -210,17 +211,19 @@ void supprimerFormateur(FORMATEUR *f,int* n){
         strcpy((f+j)->emailF , (f+j+1)->emailF );
         strcpy((f+j)->numTel , (f+j+1)->numTel ) ;
         (f+j)->nbSpecialite = (f+j+1)->nbSpecialite ;
-        for(int u=0;u<(f+u)->nbSpecialite;u++){
+        for(int u=0;u<(f+j)->nbSpecialite;u++){
            ((f+j)->spF+u)->codeSp = ((f+j+1)->spF+u)->codeSp ;
             strcpy(((f+j)->spF+u)->nomSp , ((f+j+1)->spF+u)->nomSp);
         }
     }
-    *n = *n - 1 ;
-    if((*n) == 0)
+
+    if((*n) == 0){
         free(f);
+        f=NULL;
+        printf("tableau videeee");
+    }
     else
     f = (FORMATEUR*) realloc(f,(*n) * sizeof(FORMATEUR));
-    f=NULL;
     printf("suppression effectuer avec succees ");
 
   }else
