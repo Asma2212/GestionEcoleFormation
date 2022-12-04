@@ -14,17 +14,20 @@ int saisieInt2()
     while(x<=0);
     return x;
 }
-FORMATION * allocationFormation(int n)
+FORMATION * allocationFormation(FORMATION *ft,int n)
 {
-    FORMATION *ft;
-    ft=(FORMATION*) malloc (n*sizeof(FORMATION));
+
+        if(ft != NULL){
+    ft = (FORMATION*) realloc(ft,n * sizeof(FORMATION));
+  }else{
+    ft=(FORMATION*) malloc (n*sizeof(FORMATION));}
     if(!ft) exit(-1);
     return ft;
 }
-void saisieFormation(FORMATION*ft,int n)
+void saisieFormation(FORMATION*ft,int n,int deb)
 {
     int i;
-    for(i=0;i<n;i++)
+    for(i=deb;i<n;i++)
     {
         printf("\nsaisir les informations sur la formation %d \n",i+1);
         printf("saisir le code");

@@ -92,7 +92,7 @@ void saisieSF(SESSIONFORMATION *sf,int n,int deb)
     printf("\n saisir le nombre des formations ");
     scanf("%d",&(sf+i)->nbFormation);
     (sf+i)->formations = allocationForm((sf+i)->nbFormation);
-    saisieFormation((sf+i)->formations,(sf+i)->nbFormation);
+    saisieFormation((sf+i)->formations,(sf+i)->nbFormation,0);
     //*********** formateur *********
     printf("\n saisir le nombre des formateurs ");
     scanf("%d",&(sf+i)->nbFormateur);
