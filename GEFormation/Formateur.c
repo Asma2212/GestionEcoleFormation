@@ -203,14 +203,13 @@ void supprimerFormateur(FORMATEUR *f,int* n){
        }while((strcmp(choix,"O")) && ( strcmp(choix,"N")));
      if(strcmp(choix,"O") == 0){
        *n = *n - 1 ;
-       printf("helllllooooooo");
        for(int j=i;j<(*n);j++){
           (f+j)->ceF = (f+(j+1))->ceF ;
           strcpy((f+j)->nomF , (f+(j+1))->nomF);
           strcpy((f+j)->prenomF , (f+(j+1))->prenomF);
           (f+j)->dateNaissF = (f+(j+1))->dateNaissF ;
           strcpy((f+j)->emailF , (f+(j+1))->emailF );
-          strcpy((f+j)->numTel , (f+(j+1))->numTel ) ;
+          (f+j)->numTel = (f+(j+1))->numTel  ;
           (f+j)->nbSpecialite = (f+(j+1))->nbSpecialite ;
           for(int u=0;u<(f+j)->nbSpecialite;u++){
              ((f+j)->spF+u)->codeSp = ((f+(j+1))->spF+u)->codeSp ;
