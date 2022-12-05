@@ -57,7 +57,9 @@ printf("16/ Modifier une session de formation \n") ;
 printf("17/ supprimer une session de formation \n") ;
 printf("18/ les sessions de formation disponible ce mois \n") ;
 printf("19/ chercher une session \n") ;
-printf("------------\n20/ SORTIR  \n") ;
+printf("\n---- PLUS ----\n") ;
+printf("20/ pourcentage des candidats selon leur age \n") ;
+printf("------------\n21/ SORTIR  \n") ;
 printf("\nTapez votre choix ") ;
 scanf("%d",&choix);
 
@@ -127,9 +129,12 @@ printf("%d",nbSf);
      break;
      case 19 : filtrerParTitre(sf,nbSf);
      break;
+     case 20 : pourcentCandidatParAge(c,nbC);
+     break;
+
 }
 printf("\n ----------------------------- \n") ;
-}while(choix!=20);
+}while(choix!=21);
 
    return 0 ;
 }

@@ -366,3 +366,22 @@ void filtrerParTitre(SESSIONFORMATION *sf,int n){
   if (trouver==false)
     printf("cette session n'existe pas ");
 }
+int AgeCandidat(int dN){
+    DATE d;
+    d=dateCourante();
+    return d.annee-dN;
+}
+void pourcentCandidatParAge(CANDIDAT* c,int n){
+    int s=0,i=0;
+    for(int u=0;u<n;u++)
+    {
+        if(AgeCandidat((c+u)->dateNaiss.annee)<20)
+            i++;
+        else
+            s++;
+    }
+    printf("\n---parmit tout les candidats---- \n");
+    printf("\n pourcentage des candidats ayant l'age inferieur a 20 : %d pourcent",(float)(i*100)/(i+s));
+    printf("\n pourcentage des candidats ayant l'age superieur ou egale a 20 : %d pourcent",(float)(s*100)/(i+s));
+
+}
