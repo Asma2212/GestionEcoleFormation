@@ -62,6 +62,9 @@ void saisieSF(SESSIONFORMATION *sf,int n,int deb)
      DATE d ;
   for(i=deb;i<n;i++)
    {
+        (sf+i)->nbCandidat = 0;
+     (sf+i)->nbFormateur = 0;
+     (sf+i)->nbFormation = 0;
     printf("\n saisir les informations de la session de formation %d\n",i+1);
     printf("\n saisir le code ");
     scanf("%d",&(sf+i)->codeSF);
@@ -99,9 +102,6 @@ void saisieSF(SESSIONFORMATION *sf,int n,int deb)
     (sf+i)->candidats = NULL;
         printf("\n saisir le nombre maximale des candidats ");
     scanf("%d",&(sf+i)->nbMaxCandidat);
-     (sf+i)->nbCandidat = 0;
-     (sf+i)->nbFormateur = 0;
-     (sf+i)->nbFormation = 0;
    }
 }
 
@@ -115,11 +115,11 @@ void afficherSF(SESSIONFORMATION *sf,int n)
      printf("\n titre : %s",(sf+i)->titreSF);
      printf("\n date debut : %02d/%02d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
      printf("\n date fin : %02d/%02d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
-     printf("--------- LES FORMATEUR(S) : -------- \n ");
+     printf("\n--------- LES FORMATEUR(S) : -------- \n ");
      afficherFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
-    printf("--------- LES FORMATION(S) : -------- \n ");
+    printf("\n--------- LES FORMATION(S) : -------- \n ");
      afficherFormation((sf+i)->formations,(sf+i)->nbFormation);
-    printf("--------- LES CANDIDATS(S) : -------- \n ");
+    printf("\n--------- LES CANDIDATS(S) : -------- \n ");
     afficherCandidat((sf+i)->candidats,(sf+i)->nbCandidat);
 
 
@@ -172,7 +172,7 @@ void modifierSF(SESSIONFORMATION *sf,int n){
   if(sf==NULL){
     printf("tableau VIDE");
   }else{
-  printf("entrer le code du formateur à modifier ");
+  printf("entrer le code de la session  à modifier ");
   scanf("%d",&codeSF1);
 
   while((i<n) && ( (sf+i)->codeSF != codeSF1 )){
@@ -183,7 +183,7 @@ void modifierSF(SESSIONFORMATION *sf,int n){
       printf("\n !!!! Ce code n'existe pas !!!!");
   }
     else{
-     printf(" *** Les informations du formateur à supprimer : \n");
+     printf(" *** Les informations de la session à modifier : \n");
      printf("\n titre : %s",(sf+i)->titreSF);
      printf("\n date debut : %02d/%02d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
      printf("\n date fin :  %02d/%02d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
@@ -195,7 +195,7 @@ void modifierSF(SESSIONFORMATION *sf,int n){
       afficherCandidat((sf+i)->candidats,(sf+i)->nbCandidat);
 
      }
-      printf("\n saisir les nouvelles données du candidat %d\n",i+1);
+      printf("\n saisir les nouvelles données de la session de formation %d\n",i+1);
 
     printf("\n saisir le titre ");
     scanf("%s",&(sf+i)->titreSF);
@@ -210,6 +210,7 @@ void modifierSF(SESSIONFORMATION *sf,int n){
      while(!verifDateSf(d,(sf+i)->dateDebSF));
 
     do{
+
     printf("\n saisir la date de fin (JJ/MM/AAAA)");
     scanf("%d/%d/%d",&(sf+i)->dateFinSF.jour,&(sf+i)->dateFinSF.mois,&(sf+i)->dateFinSF.annee);
     if(!verifDateSf((sf+i)->dateDebSF,(sf+i)->dateFinSF)){
@@ -230,10 +231,7 @@ void modifierSF(SESSIONFORMATION *sf,int n){
     (sf+i)->candidats = NULL;
         printf("\n saisir le nombre maximale des candidats ");
     scanf("%d",&(sf+i)->nbMaxCandidat);
-     (sf+i)->nbCandidat = 0;
-     (sf+i)->nbFormateur = 0;
-     (sf+i)->nbFormation = 0;
-  }
+
 
 }
-
+}
