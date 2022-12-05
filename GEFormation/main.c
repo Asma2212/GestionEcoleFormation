@@ -56,7 +56,8 @@ printf("15/ ajouter un candidat à une session \n") ;
 printf("16/ Modifier une session de formation \n") ;
 printf("17/ supprimer une session de formation \n") ;
 printf("18/ les sessions de formation disponible ce mois \n") ;
-printf("------------\n19/ SORTIR  \n") ;
+printf("19/ chercher une session \n") ;
+printf("------------\n20/ SORTIR  \n") ;
 printf("\nTapez votre choix ") ;
 scanf("%d",&choix);
 
@@ -124,9 +125,11 @@ printf("%d",nbSf);
      break;
      case 18 : filtrerParDate(sf,nbSf);
      break;
+     case 19 : filtrerParTitre(sf,nbSf);
+     break;
 }
 printf("\n ----------------------------- \n") ;
-}while(choix!=19);
+}while(choix!=20);
 
    return 0 ;
 }

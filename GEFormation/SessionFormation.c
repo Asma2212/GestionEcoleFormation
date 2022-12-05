@@ -337,3 +337,32 @@ void filtrerParDate(SESSIONFORMATION *sf,int n){
      if(i == 0)
             printf("aucune session ce mois");
 }
+void filtrerParTitre(SESSIONFORMATION *sf,int n){
+  int i=0;
+  char Ts[20];
+  bool trouver=false;
+  printf("donner le titre de la session ");
+  scanf("%s",&Ts);
+  while((i<n) && (trouver=true))
+  {
+      if (strcmp((sf+i)->titreSF , Ts)==0)
+      {
+          printf("\n*********************\n");
+       printf("\n informations sur la session de formation : %s\n",Ts);
+       printf("\n c'est la session %d",i+1);
+       printf("\n code : %d ",(sf+i)->codeSF) ;
+       printf("\n date debut : %02d/%02d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
+       printf("\n date fin : %02d/%02d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
+       printf("\n--------- LES FORMATEUR(S) : -------- \n ");
+         afficherFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
+       printf("\n--------- LES FORMATION(S) : -------- \n ");
+         afficherFormation((sf+i)->formations,(sf+i)->nbFormation);
+       printf("\n--------- LES CANDIDATS(S) : -------- \n ");
+         afficherCandidat((sf+i)->candidats,(sf+i)->nbCandidat);
+        trouver= true;
+      }
+      i++;
+  }
+  if (trouver==false)
+    printf("cette session n'existe pas ");
+}
