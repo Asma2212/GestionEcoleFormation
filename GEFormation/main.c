@@ -52,10 +52,11 @@ printf("12/ Supprimer une formation \n") ;
 printf("\n---- SESSION DE FORMAION ----\n") ;
 printf("13/ planifier une ou plusieurs session(s) de formations \n") ;
 printf("14/ Consulter les sessions de formations  \n");
-printf("15/ ajouter candidat à une session \n") ;
-printf("16/ ajouter une session de formation \n") ;
+printf("15/ ajouter un candidat à une session \n") ;
+printf("16/ Modifier une session de formation \n") ;
 printf("17/ supprimer une session de formation \n") ;
-printf("18/ Sortir  \n") ;
+printf("18/ les sessions de formation disponible ce mois \n") ;
+printf("------------\n19/ SORTIR  \n") ;
 printf("\nTapez votre choix ") ;
 scanf("%d",&choix);
 
@@ -121,9 +122,11 @@ printf("%d",nbSf);
      break;
      case 17 : supprimerSF(sf,&nbSf);
      break;
+     case 18 : filtrerParDate(sf,nbSf);
+     break;
 }
 printf("\n ----------------------------- \n") ;
-}while(choix!=18);
+}while(choix!=19);
 
    return 0 ;
 }

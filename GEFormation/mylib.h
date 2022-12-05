@@ -48,7 +48,7 @@ struct formation
 {
     int codeFormation;
     char titre[20] ;
-    char desc[30] ;
+    char desc[40] ;
 
 };
 typedef struct formation FORMATION;

@@ -18,8 +18,8 @@ return d ;
 }
 
 bool verifDateSf(DATE d,DATE d1){
-if(d1.annee < d.annee)
-    return false ;
+if(d1.annee > d.annee)
+    return true ;
 else
     if(d1.mois < d.mois)
         return false ;
@@ -304,3 +304,36 @@ void supprimerSF(SESSIONFORMATION *sf,int* n){
   }
 
 
+void filtrerParDate(SESSIONFORMATION *sf,int n){
+    DATE d1,d2;
+    int i ;
+    printf("\n Les sessions de formation disponible ce mois : \n");
+    d1= dateCourante();
+    d2= dateCourante();
+    if(d2.mois == 12){
+    d2.mois = 1 ;
+    d2.annee +=1 ;
+    }
+    else
+    d2.mois += 1 ;
+    for(i=0;i<n;i++){
+        if((verifDateSf((sf+i)->dateDebSF , d2) )&& (verifDateSf( d1,(sf+i)->dateDebSF))){
+                 printf("\n*********************\n");
+     printf("\n informations sur la session de formation %d\n",i+1);
+     printf("\n code : %d ",(sf+i)->codeSF) ;
+     printf("\n titre : %s",(sf+i)->titreSF);
+     printf("\n date debut : %02d/%02d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
+     printf("\n date fin : %02d/%02d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
+     printf("\n--------- LES FORMATEUR(S) : -------- \n ");
+     afficherFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
+    printf("\n--------- LES FORMATION(S) : -------- \n ");
+     afficherFormation((sf+i)->formations,(sf+i)->nbFormation);
+    printf("\n--------- LES CANDIDATS(S) : -------- \n ");
+    afficherCandidat((sf+i)->candidats,(sf+i)->nbCandidat);
+        }
+
+
+    }
+     if(i == 0)
+            printf("aucune session ce mois");
+}
