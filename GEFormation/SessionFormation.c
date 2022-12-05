@@ -235,3 +235,72 @@ void modifierSF(SESSIONFORMATION *sf,int n){
 
 }
 }
+
+void supprimerSF(SESSIONFORMATION *sf,int* n){
+
+  int i=0,codeSF1;
+  char choix[3] ;
+  if(sf==NULL){
+    printf("tableau VIDE");
+    }
+  else{
+    printf("entrer le code du formateur à supprimer ");
+    scanf("%d",&codeSF1);
+
+    while((i<*n) && ( (sf+i)->codeSF != codeSF1 )){
+         i++;
+         }
+
+    }
+  if(i==*n){
+      printf("\n !!!! Ce code n'existe pas !!!!");
+  }
+   else{
+
+     printf(" *** Les informations de la session à modifier : \n");
+     printf("\n titre : %s",(sf+i)->titreSF);
+     printf("\n date debut : %02d/%02d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
+     printf("\n date fin :  %02d/%02d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
+     printf("--------- LES FORMATEUR(S) : -------- \n ");
+      afficherFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
+     printf("--------- LES FORMATION(S) : -------- \n ");
+      afficherFormation((sf+i)->formations,(sf+i)->nbFormation);
+     printf("--------- LES CANDIDATS(S) : -------- \n ");
+      afficherCandidat((sf+i)->candidats,(sf+i)->nbCandidat);
+        }
+
+     printf(" \n---- Confirmation -------- : \n");
+     do{
+       printf("\n Voulez-vous supprimer definitivement ce formateur ? (tapez O ou N)");
+       scanf("%s",&choix);
+       if( (strcmp(choix,"O")) && (strcmp(choix,"N")) ){
+         printf("\n !!! Priére de taper O pour Confirmer ou N pour annuler la suppression");
+         }
+       }while((strcmp(choix,"O")) && ( strcmp(choix,"N")));
+     if(strcmp(choix,"O") == 0){
+       *n = *n - 1 ;
+       for(int j=i;j<(*n);j++){
+          (sf+j)->codeSF = (sf+(j+1))->codeSF;
+          strcpy((sf+j)->titreSF , (sf+(j+1))->titreSF);
+          (sf+j)->dateDebSF = (sf+(j+1))->dateDebSF ;
+          (sf+j)->dateFinSF = (sf+(j+1))->dateFinSF ;
+          (sf+j)->nbFormation = (sf+(j+1))->nbFormation ;
+          (sf+j)->formations = (sf+(j+1))->formations ;
+          (sf+j)->nbFormateur = (sf+(j+1))->nbFormateur ;
+          (sf+j)->formateurs = (sf+(j+1))->formateurs;
+          (sf+j)->nbMaxCandidat = (sf+(j+1))->nbMaxCandidat;
+        }
+       if((*n) == 0){
+         free(sf);
+         sf=NULL;
+         printf("tableau videeee");
+         }
+       else
+         sf = (SESSIONFORMATION*) realloc(sf,(*n) * sizeof(SESSIONFORMATION));
+       printf("suppression effectuer avec succees ");
+       }
+     else
+       printf("suppression annuler ");
+  }
+
+

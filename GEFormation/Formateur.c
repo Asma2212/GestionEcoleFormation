@@ -210,10 +210,7 @@ void supprimerFormateur(FORMATEUR *f,int* n){
           strcpy((f+j)->emailF , (f+(j+1))->emailF );
           (f+j)->numTel = (f+(j+1))->numTel  ;
           (f+j)->nbSpecialite = (f+(j+1))->nbSpecialite ;
-          for(int u=0;u<(f+j)->nbSpecialite;u++){
-             ((f+j)->spF+u)->codeSp = ((f+(j+1))->spF+u)->codeSp ;
-              strcpy(((f+j)->spF+u)->nomSp , ((f+(j+1))->spF+u)->nomSp);
-              }
+          (f+j)->spF = (f+(j+1))->spF;
         }
        if((*n) == 0){
          free(f);
