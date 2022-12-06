@@ -1,35 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <time.h>
+
 //#include "SessionFormation.h"
 
-DATE dateCourante(){
-DATE d;
-time_t now;
-int day, mois, an;
-time(&now);
-struct tm *local = localtime(&now);
 
-d.jour = local->tm_mday;
-d.mois = local->tm_mon + 1;
-d.annee = local->tm_year + 1900;
-return d ;
-}
-
-bool verifDateSf(DATE d,DATE d1){
-if(d1.annee > d.annee)
-    return true ;
-else
-    if(d1.mois < d.mois)
-        return false ;
-    else
-        if (d1.jour < d.jour)
-            return false ;
-
-return true ;
-
-}
 int saisieNbSF()
 {
     int x;
@@ -366,22 +341,15 @@ void filtrerParTitre(SESSIONFORMATION *sf,int n){
   if (trouver==false)
     printf("cette session n'existe pas ");
 }
-int AgeCandidat(int dN){
-    DATE d;
-    d=dateCourante();
-    return d.annee-dN;
-}
-void pourcentCandidatParAge(CANDIDAT* c,int n){
-    int s=0,i=0;
-    for(int u=0;u<n;u++)
-    {
-        if(AgeCandidat((c+u)->dateNaiss.annee)<20)
-            i++;
-        else
-            s++;
-    }
-    printf("\n---parmit tout les candidats---- \n");
-    printf("\n pourcentage des candidats ayant l'age inferieur a 20 : %d pourcent",(float)(i*100)/(i+s));
-    printf("\n pourcentage des candidats ayant l'age superieur ou egale a 20 : %d pourcent",(float)(s*100)/(i+s));
 
-}
+void candidatAge(SESSIONFORMATION* sf, int n){
+    for(int i=0;i<n;i++){
+                 printf("\n*********************\n");
+     printf("\n informations sur la session de formation %d\n",i+1);
+     printf("\n code : %d ",(sf+i)->codeSF) ;
+     printf("\n titre : %s",(sf+i)->titreSF);
+     pourcentCandidatParAge((sf+i)->candidats,(sf+i)->nbCandidat);
+
+
+}}
+

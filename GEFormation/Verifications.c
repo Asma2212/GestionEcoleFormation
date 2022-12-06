@@ -3,6 +3,35 @@
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
+#include <time.h>
+
+DATE dateCourante(){
+DATE d;
+time_t now;
+int day, mois, an;
+time(&now);
+struct tm *local = localtime(&now);
+
+d.jour = local->tm_mday;
+d.mois = local->tm_mon + 1;
+d.annee = local->tm_year + 1900;
+return d ;
+}
+
+bool verifDateSf(DATE d,DATE d1){
+if(d1.annee > d.annee)
+    return true ;
+else
+    if(d1.mois < d.mois)
+        return false ;
+    else
+        if (d1.jour < d.jour)
+            return false ;
+
+return true ;
+
+}
+
 
 bool verifDate(int nj,int nm,int na)
 {

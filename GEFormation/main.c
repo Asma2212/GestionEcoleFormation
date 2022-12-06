@@ -129,7 +129,7 @@ printf("%d",nbSf);
      break;
      case 19 : filtrerParTitre(sf,nbSf);
      break;
-     case 20 : pourcentCandidatParAge(c,nbC);
+     case 20 : candidatAge(sf,nbSf);
      break;
 
 }
