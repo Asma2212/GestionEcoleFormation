@@ -54,11 +54,11 @@ FORMATEURSESSIONS** saisieSF(SESSIONFORMATION *sf,int n,int deb,FORMATEURSESSION
 {
     int i, nFtot=0 ;
     FORMATEURSESSIONS** formateurSess = NULL ;
-    (sf+i)->formateurs = NULL ;
-(sf+i)->formations = NULL ;
      DATE d ;
   for(i=deb;i<n;i++)
    {
+(sf+i)->formateurs = NULL ;
+(sf+i)->formations = NULL ;
         (sf+i)->nbCandidat = 0;
      (sf+i)->nbFormateur = 0;
      (sf+i)->nbFormation = 0;
