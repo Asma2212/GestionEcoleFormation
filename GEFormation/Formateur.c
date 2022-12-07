@@ -65,7 +65,7 @@ void saisieFormateur(FORMATEUR* f,int n,int deb){
    printf("\n saisir le prenom ");
    scanf("%s",&(f+i)->prenomF);
    }while(!verifName((f+i)->nomF));
- /*  do{
+   do{
     printf("\n saisir la date de naissance (JJ MM AAAA) \n");
     scanf("%d/%d/%d",&(f+i)->dateNaissF.jour,&(f+i)->dateNaissF.mois,&(f+i)->dateNaissF.annee);}
     while(!verifDate((f+i)->dateNaissF.jour,(f+i)->dateNaissF.mois,(f+i)->dateNaissF.annee));
@@ -79,7 +79,7 @@ void saisieFormateur(FORMATEUR* f,int n,int deb){
 do{
    printf("\n saisir l' email ");
    scanf("%s",&(f+i)->emailF);
-}while(!verifEmail((f+i)->emailF));*/
+}while(!verifEmail((f+i)->emailF));
 
     printf("entrer le nombre des specialité qu'il possede");
         scanf("%d",&(f+i)->nbSpecialite);

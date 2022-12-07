@@ -72,7 +72,7 @@ FORMATEURSESSIONS** saisieSF(SESSIONFORMATION *sf,int n,int deb,FORMATEURSESSION
     fflush(stdin);
     gets((sf+i)->titreSF);
 
- /*   do{
+    do{
     d = dateCourante();
     printf("\n saisir la date de debut (JJ/MM/AAAA)");
     scanf("%d/%d/%d",&(sf+i)->dateDebSF.jour,&(sf+i)->dateDebSF.mois,&(sf+i)->dateDebSF.annee);
@@ -89,7 +89,7 @@ FORMATEURSESSIONS** saisieSF(SESSIONFORMATION *sf,int n,int deb,FORMATEURSESSION
        printf("la date entree doit etre superieure a la date debut %02d/%02d/%d\n", (sf+i)->dateFinSF.jour, (sf+i)->dateFinSF.mois, (sf+i)->dateFinSF.annee);
         }
     }
-     while(!verifDateSf((sf+i)->dateDebSF,(sf+i)->dateFinSF));*/
+     while(!verifDateSf((sf+i)->dateDebSF,(sf+i)->dateFinSF));
     //********** formation *************
 
     printf("\n saisir le nombre des formations ");
