@@ -25,7 +25,6 @@ int saisieInt2()
 }
 FORMATION * allocationFormation(FORMATION *ft,int n)
 {
-
         if(ft != NULL){
     ft = (FORMATION*) realloc(ft,n * sizeof(FORMATION));
   }else{

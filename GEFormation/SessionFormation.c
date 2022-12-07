@@ -54,6 +54,8 @@ FORMATEURSESSIONS** saisieSF(SESSIONFORMATION *sf,int n,int deb,FORMATEURSESSION
 {
     int i, nFtot=0 ;
     FORMATEURSESSIONS** formateurSess = NULL ;
+    (sf+i)->formateurs = NULL ;
+(sf+i)->formations = NULL ;
      DATE d ;
   for(i=deb;i<n;i++)
    {
@@ -94,15 +96,14 @@ FORMATEURSESSIONS** saisieSF(SESSIONFORMATION *sf,int n,int deb,FORMATEURSESSION
 
     printf("\n saisir le nombre des formations ");
     scanf("%d",&(sf+i)->nbFormation);
-    (sf+i)->formations = allocationForm((sf+i)->nbFormation,(sf+i)->nbFormation);
+    (sf+i)->formations = allocationForm((sf+i)->formations,(sf+i)->nbFormation);
     saisieFormation((sf+i)->formations,(sf+i)->nbFormation,0);
     //*********** formateur *********
     printf("\n saisir le nombre des formateurs ");
     scanf("%d",&(sf+i)->nbFormateur);
 
     nFtot += (sf+i)->nbFormateur ;
-    (sf+i)->formateurs = allocationForm((sf+i)->nbFormateur,(sf+i)->nbFormateur);
-
+    (sf+i)->formateurs = allocationForm((sf+i)->formateurs,(sf+i)->nbFormateur);
     saisieFormateur((sf+i)->formateurs,(sf+i)->nbFormateur,0);
     (sf+i)->candidats = NULL;
         printf("\n saisir le nombre maximale des candidats ");
