@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670256011 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
+1670430558 source:c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\main.c
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>
@@ -17,9 +17,9 @@
 	<stdbool.h>
 	<ctype.h>
 
-1670256050 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\mylib.h
+1670418159 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\mylib.h
 
-1670254028 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formateur.c
+1670430929 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formateur.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -59,23 +59,22 @@
 	<stdlib.h>
 	<stdbool.h>
 
-1670163359 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\candidat.c
+1670431130 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\candidat.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<stdbool.h>
 	<ctype.h>
 
-1670257516 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formation.c
+1670431542 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\formation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 
-1670255830 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.c
+1670431595 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\sessionformation.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
-	<time.h>
 
 1668376213 c:\users\abirb\documents\github\geformation\geformation\sessionformation.c
 	<stdio.h>
@@ -148,12 +147,13 @@
 1670057419 c:\users\abirb\documents\github\geformation\formateur.h
 	<stdbool.h>
 
-1670254028 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\verifications.c
+1670342964 c:\users\admin\desktop\angulartemplates\serviceplatform\geformation\geformation\verifications.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<stdbool.h>
 	<ctype.h>
+	<time.h>
 
 1670327141 c:\users\abirb\documents\github\geformation\verifications.c
 	<stdio.h>

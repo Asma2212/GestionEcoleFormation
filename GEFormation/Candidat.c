@@ -7,6 +7,14 @@
 //#include "Candidat.h"
 
 
+ bool existeCodeC(CANDIDAT* cand,int n,int c){
+     for(int i=0;i<n;i++){
+        if((cand+i)->ce == c){
+            return true ;
+        }
+     }
+     return false ;
+ }
 
 int saisieInt1()
 {
@@ -36,9 +44,14 @@ void saisiecandidat(CANDIDAT *c,int n,int deb)
   int i;
   for(i=deb;i<n;i++)
    {
-    printf("\n saisir les informations du candidat %d\n",i+1);
-    printf("\n saisir le code ");
-    scanf("%d",&(c+i)->ce);
+           printf("\n saisir les informations du candidat %d\n",i+1);
+       do{
+    printf("\n saisir son code ");
+       scanf("%d",&(c+i)->ce);
+       if(existeCodeC(c,i,(c+i)->ce))
+    printf("\n Attention ! le code du candidat doit etre unique\n");
+   }while(existeCodeC(c,i,(c+i)->ce));
+
     do
      {printf("\n saisir le nom ");
       scanf("%s",&(c+i)->nom);}
@@ -67,18 +80,18 @@ void saisiecandidat(CANDIDAT *c,int n,int deb)
 void afficherCandidat(CANDIDAT *c,int n)
 {   int i;
   if(c==NULL){
-    printf("tableau VIDE");
+    printf("tableau Candidat est VIDE");
   }else{
     for(i=0;i<n;i++)
    {
      printf("\n*********************\n");
      printf("\n informations sur le candidat %d\n",i+1);
-     printf("\n code : %d ",(c+i)->ce) ;
-     printf("\n nom: %s",(c+i)->nom);
-     printf("\n prenom : %s",(c+i)->prenom);
-     printf("\n date de naissance : %02d/%02d/%02d \n",(c+i)->dateNaiss.jour,(c+i)->dateNaiss.mois,(c+i)->dateNaiss.annee);
-     printf("\n numero de telephone : %d",(c+i)->numTel);
-     printf("\n adresse mail : %s",(c+i)->email);
+     printf("\n\t- code : %d ",(c+i)->ce) ;
+     printf("\n\t- nom: %s",(c+i)->nom);
+     printf("\n\t- prenom : %s",(c+i)->prenom);
+     printf("\n\t- date de naissance : %02d/%02d/%02d \n",(c+i)->dateNaiss.jour,(c+i)->dateNaiss.mois,(c+i)->dateNaiss.annee);
+     printf("\n\t- numero de telephone : %d",(c+i)->numTel);
+     printf("\n\t- adresse mail : %s",(c+i)->email);
    }
 }}
 

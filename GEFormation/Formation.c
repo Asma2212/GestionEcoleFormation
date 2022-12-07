@@ -3,6 +3,15 @@
 #include <stdbool.h>
 //#include "Formation.h"
 
+
+ bool existeCodeF(FORMATION* f,int n,int c){
+     for(int i=0;i<n;i++){
+        if((f+i)->codeFormation == c){
+            return true ;
+        }
+     }
+     return false ;
+ }
 int saisieInt2()
 {
     int x;
@@ -30,12 +39,19 @@ void saisieFormation(FORMATION*ft,int n,int deb)
     for(i=deb;i<n;i++)
     {
         printf("\nsaisir les informations sur la formation %d \n",i+1);
-        printf("saisir le code");
+        do{
+        printf("saisir le code ");
         scanf("%d",&(ft+i)->codeFormation);
+        if(existeCodeF(ft,i,(ft+i)->codeFormation))
+        printf("\n Attention ! le code du formation doit etre unique\n");
+        }while(existeCodeF(ft,i,(ft+i)->codeFormation));
         printf("saisir le titre ");
-        scanf("%s",&(ft+i)->titre);
-        printf("saisir la description");
-        scanf("%s",&(ft+i)->desc);
+        fflush(stdin);
+        gets((ft+i)->titre);
+        printf("saisir la description ");
+        fflush(stdin);
+        gets((ft+i)->desc);
+       // scanf("%s",&(ft+i)->desc);
 
     }
 }
@@ -49,9 +65,9 @@ void afficherFormation(FORMATION *ft,int n)
     {
         printf("\n*********************\n");
         printf("\n les informations sur la Formation %d \n",i+1);
-        printf("\n code : %d \n",(ft+i)->codeFormation);
-        printf("\n titre : %s\n",(ft+i)->titre);
-        printf("\n description : %s",(ft+i)->desc);
+        printf("\n\t- code : %d \n",(ft+i)->codeFormation);
+        printf("\n\t- titre : %s\n",(ft+i)->titre);
+        printf("\n\t- description : %s",(ft+i)->desc);
     }
 }
 void modifierFormation(FORMATION *ft,int n){

@@ -23,10 +23,12 @@
 int main()
 {
 FORMATEUR* f =NULL;
-int nbSf,nbC,nbFT,choix,nbf,d,tot=0,totCand=0,totFormation=0;
+int nbSf,nbC,nbFT,choix,nbf,d,tot=0,totCand=0,totFormation=0,ind,totFormateur=0;
 SESSIONFORMATION *sf=NULL ;
 CANDIDAT *c=NULL;
 FORMATION *ft = NULL;
+FORMATEURSESSIONS** formateurSess = NULL ;
+int nbSessF =0;
 // menu : planification des sessions de formations // consulter la liste des formateurs //Ajouter un candidat à une session
 // menu
 do{
@@ -55,11 +57,12 @@ printf("14/ Consulter les sessions de formations  \n");
 printf("15/ ajouter un candidat à une session \n") ;
 printf("16/ Modifier une session de formation \n") ;
 printf("17/ supprimer une session de formation \n") ;
+printf("\n---- PLUS ----\n") ;
 printf("18/ les sessions de formation disponible ce mois \n") ;
 printf("19/ chercher une session \n") ;
-printf("\n---- PLUS ----\n") ;
 printf("20/ pourcentage des candidats selon leur age \n") ;
-printf("------------\n21/ SORTIR  \n") ;
+printf("21/ Le formateur le plus demande \n") ;
+printf("------------\n22/ SORTIR  \n") ;
 printf("\nTapez votre choix ") ;
 scanf("%d",&choix);
 
@@ -68,8 +71,9 @@ switch(choix)
 {
     case 1 :
         nbf=saisieNbFormateur();
-        f=allocationForm(nbf);
-        saisieFormateur(f,nbf);
+        totFormateur += nbf ;
+        f=allocationForm(f,totFormateur);
+        saisieFormateur(f,totFormateur,totFormateur-nbf);
      break ;
 
     case 2 : afficherFormateur(f,nbf);
@@ -112,9 +116,8 @@ switch(choix)
 
         tot = tot + nbSf ;
         sf=allocationSf(sf,tot);
-printf("%d",nbSf);
-        saisieSF(sf,tot,tot-nbSf);
-
+       formateurSess = saisieSF(sf,tot,tot-nbSf,formateurSess,&nbSessF);
+printf("***** nb form %d *****",nbSessF);
         break ;
     case 14 : afficherSF(sf,tot);
 
@@ -131,10 +134,13 @@ printf("%d",nbSf);
      break;
      case 20 : candidatAge(sf,nbSf);
      break;
+    case 21 : ind = meilleurformateur(formateurSess,nbSessF);
+    afficheMeilleur(formateurSess,ind);
+     break;
 
 }
 printf("\n ----------------------------- \n") ;
-}while(choix!=21);
+}while(choix!=22);
 
    return 0 ;
 }

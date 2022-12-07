@@ -70,6 +70,21 @@ struct sessionformation
 };
 typedef struct sessionformation SESSIONFORMATION;
 
+struct FormateurSession
+{
+    int ceF;
+    char nomForm[20];
+    char prenomForm[20];
+
+    int nbSpecialite ;
+    SPECIALITE *spF ;
+
+    int nbSess ;
+    char titreSess[20];
+    //SESSIONFORMATION * sessForm;
+};
+typedef struct FormateurSession FORMATEURSESSIONS;
+
 
 #endif // MYLIB_H_INCLUDED
 

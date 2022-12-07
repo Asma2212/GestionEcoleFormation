@@ -5,6 +5,25 @@
 //#include "SessionFormation.h"
 
 
+ bool existeCodeSf(SESSIONFORMATION* sf,int n,int c){
+     for(int i=0;i<n;i++){
+        if((sf+i)->codeSF == c){
+            return true ;
+        }
+     }
+     return false ;
+ }
+
+FORMATEURSESSIONS** allocFormDem(FORMATEURSESSIONS** fSess ,int n){
+
+  fSess=(FORMATEURSESSIONS**) malloc (sizeof(FORMATEURSESSIONS*));
+printf("zzzz %p zzzzz",fSess);
+    if(!fSess) exit(-1);
+
+    return fSess ;
+
+}
+
 int saisieNbSF()
 {
     int x;
@@ -31,22 +50,29 @@ SESSIONFORMATION* allocationSf(SESSIONFORMATION *sf,int n)
     return sf;
 }
 
-void saisieSF(SESSIONFORMATION *sf,int n,int deb)
+FORMATEURSESSIONS** saisieSF(SESSIONFORMATION *sf,int n,int deb,FORMATEURSESSIONS** fSess ,int *n1)
 {
-    int i ;
+    int i, nFtot=0 ;
+    FORMATEURSESSIONS** formateurSess = NULL ;
      DATE d ;
   for(i=deb;i<n;i++)
    {
         (sf+i)->nbCandidat = 0;
      (sf+i)->nbFormateur = 0;
      (sf+i)->nbFormation = 0;
+
     printf("\n saisir les informations de la session de formation %d\n",i+1);
+    do{
     printf("\n saisir le code ");
     scanf("%d",&(sf+i)->codeSF);
+       if(existeCodeSf(sf,i,(sf+i)->codeSF))
+        printf("\n Attention ! le code du session doit etre unique\n");
+   }while(existeCodeSf(sf,i,(sf+i)->codeSF));
     printf("\n saisir le titre ");
-    scanf("%s",&(sf+i)->titreSF);
+    fflush(stdin);
+    gets((sf+i)->titreSF);
 
-    do{
+ /*   do{
     d = dateCourante();
     printf("\n saisir la date de debut (JJ/MM/AAAA)");
     scanf("%d/%d/%d",&(sf+i)->dateDebSF.jour,&(sf+i)->dateDebSF.mois,&(sf+i)->dateDebSF.annee);
@@ -63,21 +89,31 @@ void saisieSF(SESSIONFORMATION *sf,int n,int deb)
        printf("la date entree doit etre superieure a la date debut %02d/%02d/%d\n", (sf+i)->dateFinSF.jour, (sf+i)->dateFinSF.mois, (sf+i)->dateFinSF.annee);
         }
     }
-     while(!verifDateSf((sf+i)->dateDebSF,(sf+i)->dateFinSF));
+     while(!verifDateSf((sf+i)->dateDebSF,(sf+i)->dateFinSF));*/
     //********** formation *************
+
     printf("\n saisir le nombre des formations ");
     scanf("%d",&(sf+i)->nbFormation);
-    (sf+i)->formations = allocationForm((sf+i)->nbFormation);
+    (sf+i)->formations = allocationForm((sf+i)->nbFormation,(sf+i)->nbFormation);
     saisieFormation((sf+i)->formations,(sf+i)->nbFormation,0);
     //*********** formateur *********
     printf("\n saisir le nombre des formateurs ");
     scanf("%d",&(sf+i)->nbFormateur);
-    (sf+i)->formateurs = allocationForm((sf+i)->nbFormateur);
-    saisieFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
+
+    nFtot += (sf+i)->nbFormateur ;
+    (sf+i)->formateurs = allocationForm((sf+i)->nbFormateur,(sf+i)->nbFormateur);
+
+    saisieFormateur((sf+i)->formateurs,(sf+i)->nbFormateur,0);
     (sf+i)->candidats = NULL;
         printf("\n saisir le nombre maximale des candidats ");
     scanf("%d",&(sf+i)->nbMaxCandidat);
    }
+
+    formateurSess = allocFormDem(formateurSess ,nFtot);
+    saisieFormateurParSess(sf,n,formateurSess,nFtot);
+    ajoutNbSessAuFormateur(formateurSess,nFtot);
+    *n1 = nFtot ;
+    return formateurSess ;
 }
 
 void afficherSF(SESSIONFORMATION *sf,int n)
@@ -101,6 +137,7 @@ void afficherSF(SESSIONFORMATION *sf,int n)
 
    }
 }
+
 void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
 {
  int i=0,code,nbC;
@@ -196,13 +233,13 @@ void modifierSF(SESSIONFORMATION *sf,int n){
     //********** formation *************
     printf("\n saisir le nombre des formations ");
     scanf("%d",&(sf+i)->nbFormation);
-    (sf+i)->formations = allocationForm((sf+i)->nbFormation);
+    (sf+i)->formations = allocationForm((sf+i)->nbFormation,(sf+i)->nbFormation);
     saisieFormation((sf+i)->formations,(sf+i)->nbFormation,0);
     //*********** formateur *********
     printf("\n saisir le nombre des formateurs ");
     scanf("%d",&(sf+i)->nbFormateur);
-    (sf+i)->formateurs = allocationForm((sf+i)->nbFormateur);
-    saisieFormateur((sf+i)->formateurs,(sf+i)->nbFormateur);
+    (sf+i)->formateurs = allocationForm((sf+i)->nbFormateur,(sf+i)->nbFormateur);
+    saisieFormateur((sf+i)->formateurs,(sf+i)->nbFormateur,0);
     (sf+i)->candidats = NULL;
         printf("\n saisir le nombre maximale des candidats ");
     scanf("%d",&(sf+i)->nbMaxCandidat);
@@ -352,4 +389,98 @@ void candidatAge(SESSIONFORMATION* sf, int n){
 
 
 }}
+
+
+void ajoutNbSessAuFormateur(FORMATEURSESSIONS** fSess,int n)
+{
+    int ce,c =1;
+for(int i = 0 ; i<n ; i++){
+ce = (*(fSess+i))->ceF ;
+for(int j=i+1;j<n-1;j++){
+        if(ce == (*(fSess+j))->ceF){
+            (*(fSess+i))->nbSess ++ ;
+        }
+
+}}
+//affFormParSess(fSess,n);
+
+}
+
+
+int meilleurformateur(FORMATEURSESSIONS** fSess,int n)
+{
+    int max=0 , i;
+for(int i =1 ; i<n-1 ; i++){
+        if((*(fSess+max))->nbSess < (*(fSess+i))->nbSess){
+            max = i ;
+        }
+}
+return max ;
+
+}
+
+
+void afficheMeilleur(FORMATEURSESSIONS** fSess,int i)
+{
+  printf("\n Le Formateur le plus demande est \n");
+   printf("\n Code : %d ",(*(fSess+i))->ceF) ;
+     printf("\n Nom : %s ",(*(fSess+i))->nomForm) ;
+     printf("\n Prenom : %s ",(*(fSess+i))->prenomForm) ;
+     printf("\n Titre Session : %s",(*(fSess+i))->titreSess);
+     printf("\n Nombre des sessions qu'il forme : %d",(*(fSess+i))->nbSess);
+        printf("\n Nombre des Specialités qu'il possede: %d",(*(fSess+i))->nbSpecialite);
+   for(int j=0;j<(*(fSess+i))->nbSpecialite;j++){
+   //printf("\n\t- code Specialite : %d ",((*(fSess+i))->spF+j)->codeSp);
+   printf("\n\t- nom Specialite %s",((*(fSess+i))->spF+j)->nomSp);
+   }
+
+}
+
+
+
+void affFormParSess(FORMATEURSESSIONS** fSess,int n){
+printf("---%d---",n);
+        for(int i=0;i<n;i++)
+   {
+     printf("\n*********************\n");
+     printf("\n Les Formateurs les plus demandees %d\n",i+1);
+   printf("\n code : %d ",(*(fSess+i))->ceF) ;
+     printf("\n nom : %s ",(*(fSess+i))->nomForm) ;
+     printf("\n titre Session : %s",(*(fSess+i))->titreSess);
+    printf("\n nombre des sessions qu'il forme: %d",(*(fSess+i))->nbSess);
+        printf("\n nombre des Specialités qu'il possede: %d",(*(fSess+i))->nbSpecialite);
+   for(int j=0;j<(*(fSess+i))->nbSpecialite;j++){
+   //printf("\n\t- code Specialite : %d ",((*(fSess+i))->spF+j)->codeSp);
+   printf("\n\t- nom Specialite %s",((*(fSess+i))->spF+j)->nomSp);
+   }
+
+   }
+}
+
+void saisieFormateurParSess(SESSIONFORMATION* sf, int n,FORMATEURSESSIONS** fSess,int nfs)
+{
+   // int nbSessF ;
+    FORMATEURSESSIONS* formS;
+    int c=0 ;
+    printf("*************************************");
+    for(int i=0;i<n;i++){
+      for(int j=0 ; j<(sf+i)->nbFormateur;j++){
+
+        (*(fSess+c)) =(FORMATEURSESSIONS*) malloc (sizeof(FORMATEURSESSIONS));
+        printf("etape1");
+        (*(fSess+c))->ceF = (((sf+i)->formateurs)+j)->ceF ;
+        strcpy((*(fSess+c))->nomForm , (((sf+i)->formateurs)+j)->nomF);
+        strcpy((*(fSess+c))->prenomForm , (((sf+i)->formateurs)+j)->prenomF);
+        (*(fSess+c))->nbSpecialite = (((sf+i)->formateurs)+j)->nbSpecialite;
+        (*(fSess+c))->spF = (((sf+i)->formateurs)+j)->spF ;
+        strcpy((*(fSess+c))->titreSess , (sf+i)->titreSF);
+        //formS.sessForm = NULL ;
+       (*(fSess+c))->nbSess = 1 ;
+       c++;
+
+    }
+    }
+
+
+}
 
