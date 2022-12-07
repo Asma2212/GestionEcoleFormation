@@ -357,7 +357,7 @@ void filtrerParTitre(SESSIONFORMATION *sf,int n){
   scanf("%s",&Ts);
   while((i<n) && (trouver=true))
   {
-      if (strcmp((sf+i)->titreSF , Ts)==0)
+      if ((strstr((sf+i)->titreSF , Ts)!=NULL) || (strstr(Ts, (sf+i)->titreSF )!=NULL))
       {
           printf("\n*********************\n");
        printf("\n informations sur la session de formation : %s\n",Ts);
