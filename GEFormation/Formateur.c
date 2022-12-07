@@ -110,7 +110,7 @@ for(int i=0;i<n;i++){
 }
 }
 }
-void modifierFormateur(FORMATEUR *f,int* n){
+void modifierFormateur(FORMATEUR *f,int n){
 
       int i=0,ceF1;
 
@@ -121,15 +121,15 @@ void modifierFormateur(FORMATEUR *f,int* n){
   printf("entrer le code du formateur à modifier ");
   scanf("%d",&ceF1);
 
-  while((i<*n) && ( (f+i)->ceF != ceF1 )){
+  while((i<n) && ( (f+i)->ceF != ceF1 )){
         i++;
   }
 
-  if(i==*n){
+  if(i==n){
       printf("\n !!!! Ce code n'existe pas !!!!");
   }
     else{
-     printf(" *** Les informations du formateur à supprimer : \n");
+     printf(" *** Les informations du formateur à modifier : \n");
      printf("\n nom : %s",(f+i)->nomF);
      printf("\n prenom : %s",(f+i)->prenomF);
      printf("\n date de naissance : %d/%d/%d",(f+i)->dateNaissF.jour,(f+i)->dateNaissF.mois,(f+i)->dateNaissF.annee);
@@ -140,7 +140,7 @@ void modifierFormateur(FORMATEUR *f,int* n){
         printf("\n code Specialite : %d ",((f+i)->spF+u)->codeSp);
         printf("\n nom Specialite %s",((f+i)->spF+u)->nomSp);
      }
-      printf("\n saisir les nouvelles données du candidat %d\n",i+1);
+      printf("\n saisir les nouvelles données du formateur %d\n",i+1);
 
          do
      {printf("\n saisir le nom ");
@@ -164,10 +164,6 @@ void modifierFormateur(FORMATEUR *f,int* n){
     {printf("\n saisir l'adresse mail ");
       scanf("%s",&(f+i)->emailF);}
     while(!verifEmail((f+i)->emailF));
-    do{
-       printf("\n saisir l' email ");
-       scanf("%s",&(f+i)->emailF);
-      }while(!verifEmail((f+i)->emailF));
 
      printf("entrer le nombre des specialité qu'il possede");
          scanf("%d",&(f+i)->nbSpecialite);
@@ -176,6 +172,7 @@ void modifierFormateur(FORMATEUR *f,int* n){
   }
 
 }}
+
 
 void supprimerFormateur(FORMATEUR *f,int* n){
 
