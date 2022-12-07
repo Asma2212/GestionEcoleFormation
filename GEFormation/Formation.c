@@ -91,11 +91,12 @@ void modifierFormation(FORMATION *ft,int n){
         printf("\n description : %s",(ft+i)->desc);
 
       printf("\n saisir les nouvelles données du formations %d\n",i+1);
-
         printf("saisir le titre ");
-        scanf("%s",&(ft+i)->titre);
-        printf("saisir la description");
-        scanf("%s",&(ft+i)->desc);
+        fflush(stdin);
+        gets((ft+i)->titre);
+        printf("saisir la description ");
+        fflush(stdin);
+        gets((ft+i)->desc);
 
   }
 

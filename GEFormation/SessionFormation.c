@@ -210,7 +210,8 @@ void modifierSF(SESSIONFORMATION *sf,int n){
       printf("\n saisir les nouvelles données de la session de formation %d\n",i+1);
 
     printf("\n saisir le titre ");
-    scanf("%s",&(sf+i)->titreSF);
+            fflush(stdin);
+    gets((sf+i)->titreSF);
     do{
     d = dateCourante();
     printf("\n saisir la date de debut (JJ/MM/AAAA)");
