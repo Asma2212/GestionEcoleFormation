@@ -271,7 +271,7 @@ void supprimerSF(SESSIONFORMATION *sf,int* n){
   }
    else{
 
-     printf(" *** Les informations de la session à modifier : \n");
+     printf(" *** Les informations de la session à supprimer : \n");
      printf("\n titre : %s",(sf+i)->titreSF);
      printf("\n date debut : %02d/%02d/%d",(sf+i)->dateDebSF.jour,(sf+i)->dateDebSF.mois,(sf+i)->dateDebSF.annee);
      printf("\n date fin :  %02d/%02d/%d",(sf+i)->dateFinSF.jour,(sf+i)->dateFinSF.mois,(sf+i)->dateFinSF.annee);
