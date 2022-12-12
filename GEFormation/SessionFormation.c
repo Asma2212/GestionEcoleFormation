@@ -158,9 +158,8 @@ void AjouterCandidatSF(SESSIONFORMATION *sf,int n)
                     if(nbC > (sf+i)->nbMaxCandidat - (sf+i)->nbCandidat)
                         printf("nombre est limitée il vous reste seulement %d libre(s)",(sf+i)->nbMaxCandidat - (sf+i)->nbCandidat);
                     else{
-                            printf("***");
+                             printf("\n deja %d Candidat(s) \n",(sf+i)->nbCandidat);
                             (sf+i)->nbCandidat += nbC ;
-                            printf("111***  %d",(sf+i)->nbCandidat);
                             (sf+i)->candidats = allocationCand((sf+i)->candidats,(sf+i)->nbCandidat);
                             saisiecandidat((sf+i)->candidats,(sf+i)->nbCandidat,(sf+i)->nbCandidat-nbC);
 
